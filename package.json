@@ -1,0 +1,16 @@
+{
+  "name": "caverosalud-digital",
+  "version": "1.0.0",
+  "description": "Sistema de gestión médica para Clínica Cavero",
+  "main": "public/index.html",
+  "scripts": {
+    "build": "echo 'No build process needed'",
+    "dev": "live-server public"
+  },
+  "keywords": ["salud", "medicina", "citas", "clinica"],
+  "author": "Clínica Cavero",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
