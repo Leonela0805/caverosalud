@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de gestión médica CaveroSalud Digital - Agenda citas, gestiona pacientes y médicos">
+    <title>CaveroSalud Digital - Sistema de Gestión Médica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --primary-dark: #0d62d0;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --danger-color: #ea4335;
+            --light-color: #f8f9fa;
+            --dark-color: #202124;
+            --gray-color: #5f6368;
+            --light-gray: #e8eaed;
+            --border-radius: 8px;
+            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(26, 115, 232, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-light {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-light:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* User Type Selector */
+        .user-type-selector {
+            background-color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .user-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .user-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border-top: 4px solid transparent;
+        }
+
+        .user-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-card.admin {
+            border-top-color: var(--danger-color);
+        }
+
+        .user-card.doctor {
+            border-top-color: var(--primary-color);
+        }
+
+        .user-card.patient {
+            border-top-color: var(--secondary-color);
+        }
+
+        .user-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .user-card.admin .user-icon {
+            color: var(--danger-color);
+        }
+
+        .user-card.doctor .user-icon {
+            color: var(--primary-color);
+        }
+
+        .user-card.patient .user-icon {
+            color: var(--secondary-color);
+        }
+
+        .user-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .user-card p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: none;
+            padding: 40px 0;
+            min-height: 100vh;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .user-role {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .role-admin {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .role-doctor {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .role-patient {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background-color: var(--light-color);
+            padding: 25px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .appointments-list, .doctors-list, .patients-list {
+            list-style: none;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .appointment-item, .doctor-item, .patient-item {
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .appointment-item:hover, .doctor-item:hover, .patient-item:hover {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 18px 15px;
+            margin: 0 -15px;
+        }
+
+        .appointment-item:last-child, .doctor-item:last-child, .patient-item:last-child {
+            border-bottom: none;
+        }
+
+        .appointment-info h4, .doctor-info h4, .patient-info h4 {
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+
+        .appointment-info p, .doctor-info p, .patient-info p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .appointment-actions, .doctor-actions, .patient-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge.confirmada {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .badge.pendiente {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .badge.cancelada {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        /* Medical History */
+        .medical-history-item {
+            padding: 20px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            background-color: var(--light-color);
+        }
+
+        .medical-history-item h4 {
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .medical-history-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: var(--gray-color);
+        }
+
+        .medical-history-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            color: white;
+            font-weight: 500;
+            z-index: 3000;
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.success {
+            background-color: var(--secondary-color);
+        }
+
+        .notification.error {
+            background-color: var(--danger-color);
+        }
+
+        .notification.info {
+            background-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .user-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .appointment-item, .doctor-item, .patient-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .appointment-actions, .doctor-actions, .patient-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1><i class="fas fa-heartbeat"></i> CaveroSalud Digital</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#features">Servicios</a></li>
+                    <li><a href="#how-it-works">Cómo funciona</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+                <button class="btn btn-primary" id="registerBtn"><i class="fas fa-user-plus"></i> Registrarse</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Sistema Integral de Gestión Médica</h2>
+            <p>Plataforma digital para la gestión completa de la Clínica Cavero. Administra pacientes, médicos y citas en un solo lugar.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-light" id="demoBtn"><i class="fas fa-play-circle"></i> Probar Demo</button>
+                <button class="btn btn-outline" style="border-color: white; color: white;" id="moreInfoBtn"><i class="fas fa-info-circle"></i> Más información</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Type Selector -->
+    <section class="user-type-selector" id="userTypeSelector">
+        <div class="container">
+            <h2>Selecciona un tipo de usuario para probar el sistema</h2>
+            <p>Explora las diferentes funcionalidades según tu rol en la clínica</p>
+            
+            <div class="user-cards">
+                <div class="user-card admin" data-user-type="admin">
+                    <div class="user-icon"><i class="fas fa-crown"></i></div>
+                    <h3>Dueño/Administrador</h3>
+                    <p>Acceso completo al sistema. Visualiza todas las citas, gestiona médicos y pacientes, y genera reportes.</p>
+                    <div class="btn btn-primary">Acceder como Dueño</div>
+                </div>
+                
+                <div class="user-card doctor" data-user-type="doctor">
+                    <div class="user-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Médico</h3>
+                    <p>Gestiona tus citas, visualiza tu agenda, atiende pacientes y actualiza historias clínicas.</p>
+                    <div class="btn btn-primary">Acceder como Médico</div>
+                </div>
+                
+                <div class="user-card patient" data-user-type="patient">
+                    <div class="user-icon"><i class="fas fa-user"></i></div>
+                    <h3>Paciente</h3>
+                    <p>Agenda citas, consulta tu historia clínica y recibe recordatorios de tus consultas.</p>
+                    <div class="btn btn-primary">Acceder como Paciente</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section class="dashboard" id="adminDashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div>
+                        <h3>Administrador CaveroSalud <span class="user-role role-admin">Dueño</span></h3>
+                        <p>admin@caverosalud.pe</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalAppointments">24</div>
+                    <div class="stat-label">Citas Totales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalDoctors">8</div>
+                    <div class="stat-label">Médicos Activos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalPatients">156</div>
+                    <div class="stat-label">Pacientes Registrados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="todayAppointments">5</div>
+                    <div class="stat-label">Citas Hoy</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Citas Recientes</h3>
+                    <ul class="appointments-list" id="adminAppointmentsList">
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Cardiología</h4>
+                                <p>Ana López con Dra. María García</p>
+                                <p>15 Noviembre 2023 - 11:30 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <span class="badge confirmada">Confirmada</span>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Medicina General</h4>
+                                <p>Carlos Mendoza con Dr. Juan Pérez</p>
+                                <p>15 Noviembre 2023 - 10:00 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <span class="badge confirmada">Confirmada</span>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Dermatología</h4>
+                                <p>Roberto Silva con Dr. Carlos Rodríguez</p>
+                                <p>16 Noviembre 2023 - 09:00 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <span class="badge pendiente">Pendiente</span>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Pediatría</h4>
+                                <p>Javier Ruiz con Dra. Laura Mendoza</p>
+                                <p>17 Noviembre 2023 - 10:30 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <span class="badge confirmada">Confirmada</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
+                        <i class="fas fa-list"></i> Ver Todas las Citas
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-user-md"></i> Médicos Activos</h3>
+                    <ul class="doctors-list" id="adminDoctorsList">
+                        <li class="doctor-item">
+                            <div class="doctor-info">
+                                <h4>Dr. Juan Pérez</h4>
+                                <p>Medicina General</p>
+                                <p>12 citas programadas</p>
+                            </div>
+                            <div class="doctor-actions">
+                                <button class="btn btn-sm btn-outline">Editar</button>
+                            </div>
+                        </li>
+                        <li class="doctor-item">
+                            <div class="doctor-info">
+                                <h4>Dra. María García</h4>
+                                <p>Cardiología</p>
+                                <p>8 citas programadas</p>
+                            </div>
+                            <div class="doctor-actions">
+                                <button class="btn btn-sm btn-outline">Editar</button>
+                            </div>
+                        </li>
+                        <li class="doctor-item">
+                            <div class="doctor-info">
+                                <h4>Dr. Carlos Rodríguez</h4>
+                                <p>Dermatología</p>
+                                <p>5 citas programadas</p>
+                            </div>
+                            <div class="doctor-actions">
+                                <button class="btn btn-sm btn-outline">Editar</button>
+                            </div>
+                        </li>
+                        <li class="doctor-item">
+                            <div class="doctor-info">
+                                <h4>Dra. Laura Mendoza</h4>
+                                <p>Pediatría</p>
+                                <p>10 citas programadas</p>
+                            </div>
+                            <div class="doctor-actions">
+                                <button class="btn btn-sm btn-outline">Editar</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
+                        <i class="fas fa-plus"></i> Agregar Médico
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-chart-bar"></i> Reportes Rápidos</h3>
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 15px; color: var(--gray-color);">Especialidades Más Solicitadas</h4>
+                        <div style="background: var(--light-color); padding: 15px; border-radius: var(--border-radius);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Medicina General</span>
+                                <span style="font-weight: bold; color: var(--primary-color);">35%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Cardiología</span>
+                                <span style="font-weight: bold; color: var(--primary-color);">25%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Pediatría</span>
+                                <span style="font-weight: bold; color: var(--primary-color);">20%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Dermatología</span>
+                                <span style="font-weight: bold; color: var(--primary-color);">15%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">
+                        <i class="fas fa-download"></i> Generar Reporte Completo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor Dashboard -->
+    <section class="dashboard" id="doctorDashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">D</div>
+                    <div>
+                        <h3 id="doctorName">Dr. Juan Pérez <span class="user-role role-doctor">Médico</span></h3>
+                        <p id="doctorSpecialty">Medicina General</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="doctorLogoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="doctorAppointmentsToday">3</div>
+                    <div class="stat-label">Citas Hoy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="doctorAppointmentsWeek">12</div>
+                    <div class="stat-label">Citas Esta Semana</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="doctorPatients">45</div>
+                    <div class="stat-label">Pacientes Atendidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="doctorAvailability">85%</div>
+                    <div class="stat-label">Disponibilidad</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-calendar-day"></i> Citas de Hoy</h3>
+                    <ul class="appointments-list" id="doctorTodayAppointments">
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Carlos Mendoza</h4>
+                                <p>10:00 AM - Medicina General</p>
+                                <p>Estado: Confirmada</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-primary">Atender</button>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>María Torres</h4>
+                                <p>02:00 PM - Medicina General</p>
+                                <p>Estado: Confirmada</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-primary">Atender</button>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Luis García</h4>
+                                <p>04:30 PM - Consulta de control</p>
+                                <p>Estado: Confirmada</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-primary">Atender</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
+                        <i class="fas fa-calendar-week"></i> Ver Agenda Semanal
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-clock"></i> Próximas Citas</h3>
+                    <ul class="appointments-list" id="doctorUpcomingAppointments">
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Ana López</h4>
+                                <p>16 Nov - 09:00 AM</p>
+                                <p>Cardiología</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-outline">Detalles</button>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Roberto Silva</h4>
+                                <p>17 Nov - 11:00 AM</p>
+                                <p>Control post-operatorio</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-outline">Detalles</button>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Javier Ruiz</h4>
+                                <p>18 Nov - 03:30 PM</p>
+                                <p>Consulta general</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-outline">Detalles</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">
+                        <i class="fas fa-user-clock"></i> Gestionar Disponibilidad
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-file-medical"></i> Acciones Rápidas</h3>
+                    <div class="quick-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-stethoscope"></i> Registrar Consulta
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-prescription"></i> Generar Receta
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-file-medical-alt"></i> Actualizar Historia
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-vial"></i> Solicitar Exámenes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient Dashboard -->
+    <section class="dashboard" id="patientDashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">P</div>
+                    <div>
+                        <h3 id="patientName">Carlos Mendoza <span class="user-role role-patient">Paciente</span></h3>
+                        <p id="patientEmail">carlos@ejemplo.com</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="patientLogoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Mis Próximas Citas</h3>
+                    <ul class="appointments-list" id="patientAppointmentsList">
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Medicina General</h4>
+                                <p>Dr. Juan Pérez</p>
+                                <p>15 Noviembre 2023 - 10:00 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-danger">Cancelar</button>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Cardiología</h4>
+                                <p>Dra. María García</p>
+                                <p>22 Noviembre 2023 - 03:00 PM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-danger">Cancelar</button>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Control Médico</h4>
+                                <p>Dr. Juan Pérez</p>
+                                <p>05 Diciembre 2023 - 11:30 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-danger">Cancelar</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">
+                        <i class="fas fa-calendar-plus"></i> Agendar Nueva Cita
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-file-medical"></i> Mi Historia Clínica</h3>
+                    <div id="patientMedicalHistory">
+                        <div class="medical-history-item">
+                            <h4>Consulta de Medicina General</h4>
+                            <div class="medical-history-meta">
+                                <span><i class="fas fa-calendar"></i> 15 Octubre 2023</span>
+                                <span><i class="fas fa-user-md"></i> Dr. Juan Pérez</span>
+                            </div>
+                            <p><strong>Diagnóstico:</strong> Infección respiratoria superior</p>
+                            <p><strong>Tratamiento:</strong> Amoxicilina 500mg cada 8 horas por 7 días</p>
+                        </div>
+                        <div class="medical-history-item">
+                            <h4>Control Cardiológico</h4>
+                            <div class="medical-history-meta">
+                                <span><i class="fas fa-calendar"></i> 05 Septiembre 2023</span>
+                                <span><i class="fas fa-user-md"></i> Dra. María García</span>
+                            </div>
+                            <p><strong>Diagnóstico:</strong> Presión arterial elevada</p>
+                            <p><strong>Tratamiento:</strong> Losartán 50mg una vez al día</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
+                        <i class="fas fa-history"></i> Ver Historia Completa
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-user-md"></i> Médicos Disponibles</h3>
+                    <div id="patientDoctorsList">
+                        <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                            <h4>Dr. Juan Pérez</h4>
+                            <p><i class="fas fa-stethoscope"></i> Medicina General</p>
+                            <p style="font-size: 0.85rem; color: var(--gray-color);">Especialista en medicina familiar y consultas generales</p>
+                        </div>
+                        <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                            <h4>Dra. María García</h4>
+                            <p><i class="fas fa-heartbeat"></i> Cardiología</p>
+                            <p style="font-size: 0.85rem; color: var(--gray-color);">Especialista en enfermedades cardiovasculares</p>
+                        </div>
+                        <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                            <h4>Dr. Carlos Rodríguez</h4>
+                            <p><i class="fas fa-eye"></i> Dermatología</p>
+                            <p style="font-size: 0.85rem; color: var(--gray-color);">Especialista en enfermedades de la piel</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
+                        <i class="fas fa-list"></i> Ver Todos los Médicos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CaveroSalud Digital</h3>
+                    <p>Plataforma digital para la gestión de servicios médicos de la Clínica Cavero. RUC Nº 20564091571</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#features">Servicios</a></li>
+                        <li><a href="#how-it-works">Cómo funciona</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Ayacucho, Perú</li>
+                        <li><i class="fas fa-phone"></i> +51 966 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@caverosalud.pe</li>
+                        <li><i class="fas fa-globe"></i> www.caverosalud.pe</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Clínica Cavero EIRL - Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de ejemplo para el sistema
+        const sampleData = {
+            appointments: [
+                { id: 1, patientName: "Carlos Mendoza", doctorName: "Dr. Juan Pérez", specialty: "Medicina General", date: "2023-11-15", time: "10:00", status: "confirmada" },
+                { id: 2, patientName: "Ana López", doctorName: "Dra. María García", specialty: "Cardiología", date: "2023-11-15", time: "11:30", status: "confirmada" },
+                { id: 3, patientName: "Roberto Silva", doctorName: "Dr. Carlos Rodríguez", specialty: "Dermatología", date: "2023-11-16", time: "09:00", status: "pendiente" },
+                { id: 4, patientName: "María Torres", doctorName: "Dr. Juan Pérez", specialty: "Medicina General", date: "2023-11-16", time: "14:00", status: "confirmada" },
+                { id: 5, patientName: "Javier Ruiz", doctorName: "Dra. Laura Mendoza", specialty: "Pediatría", date: "2023-11-17", time: "10:30", status: "confirmada" }
+            ],
+            doctors: [
+                { id: 1, name: "Dr. Juan Pérez", specialty: "Medicina General", email: "jperez@caverosalud.pe", status: "activo", appointments: 12 },
+                { id: 2, name: "Dra. María García", specialty: "Cardiología", email: "mgarcia@caverosalud.pe", status: "activo", appointments: 8 },
+                { id: 3, name: "Dr. Carlos Rodríguez", specialty: "Dermatología", email: "crodriguez@caverosalud.pe", status: "activo", appointments: 5 },
+                { id: 4, name: "Dra. Laura Mendoza", specialty: "Pediatría", email: "lmendoza@caverosalud.pe", status: "activo", appointments: 10 }
+            ],
+            patients: [
+                { id: 1, name: "Carlos Mendoza", email: "carlos@ejemplo.com", phone: "987654321", lastAppointment: "2023-10-15" },
+                { id: 2, name: "Ana López", email: "ana@ejemplo.com", phone: "987654322", lastAppointment: "2023-10-20" },
+                { id: 3, name: "Roberto Silva", email: "roberto@ejemplo.com", phone: "987654323", lastAppointment: "2023-11-05" },
+                { id: 4, name: "María Torres", email: "maria@ejemplo.com", phone: "987654324", lastAppointment: "2023-11-10" }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Sistema CaveroSalud Digital inicializado');
+            
+            // Elementos del DOM
+            const userTypeSelector = document.getElementById('userTypeSelector');
+            const adminDashboard = document.getElementById('adminDashboard');
+            const doctorDashboard = document.getElementById('doctorDashboard');
+            const patientDashboard = document.getElementById('patientDashboard');
+            
+            const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+            const doctorLogoutBtn = document.getElementById('doctorLogoutBtn');
+            const patientLogoutBtn = document.getElementById('patientLogoutBtn');
+            
+            const demoBtn = document.getElementById('demoBtn');
+            const moreInfoBtn = document.getElementById('moreInfoBtn');
+
+            // Selección de tipo de usuario
+            document.querySelectorAll('.user-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const userType = this.getAttribute('data-user-type');
+                    loginAsUser(userType);
+                });
+            });
+
+            // Botón de demo
+            demoBtn.addEventListener('click', function() {
+                userTypeSelector.scrollIntoView({ behavior: 'smooth' });
+                showNotification('Selecciona un tipo de usuario para probar el sistema', 'info');
+            });
+
+            // Botón más información
+            moreInfoBtn.addEventListener('click', function() {
+                showNotification('Para más información, contacta con nuestro equipo de soporte.', 'info');
+            });
+
+            // Cerrar sesión
+            adminLogoutBtn.addEventListener('click', function() {
+                logout();
+            });
+
+            doctorLogoutBtn.addEventListener('click', function() {
+                logout();
+            });
+
+            patientLogoutBtn.addEventListener('click', function() {
+                logout();
+            });
+
+            // Función para iniciar sesión como un tipo de usuario
+            function loginAsUser(userType) {
+                console.log(`Iniciando sesión como: ${userType}`);
+                
+                // Ocultar selector de usuario
+                userTypeSelector.style.display = 'none';
+                
+                // Mostrar dashboard correspondiente
+                if (userType === 'admin') {
+                    loadAdminDashboard();
+                    adminDashboard.style.display = 'block';
+                    showNotification('¡Bienvenido Administrador! Tienes acceso completo al sistema.', 'success');
+                } else if (userType === 'doctor') {
+                    loadDoctorDashboard();
+                    doctorDashboard.style.display = 'block';
+                    showNotification('¡Bienvenido Doctor! Aquí puedes gestionar tus citas y pacientes.', 'success');
+                } else if (userType === 'patient') {
+                    loadPatientDashboard();
+                    patientDashboard.style.display = 'block';
+                    showNotification('¡Bienvenido! Agenda y gestiona tus citas médicas.', 'success');
+                }
+            }
+
+            // Función para cerrar sesión
+            function logout() {
+                console.log('Cerrando sesión');
+                
+                // Ocultar todos los dashboards
+                adminDashboard.style.display = 'none';
+                doctorDashboard.style.display = 'none';
+                patientDashboard.style.display = 'none';
+                
+                // Mostrar selector de usuario
+                userTypeSelector.style.display = 'block';
+                
+                showNotification('Sesión cerrada correctamente', 'info');
+            }
+
+            // Cargar dashboard de administrador
+            function loadAdminDashboard() {
+                console.log('Cargando dashboard de administrador');
+                
+                // Las estadísticas ya están cargadas en el HTML
+                // En una aplicación real, aquí se harían llamadas a la API
+                
+                // Agregar funcionalidad a los botones de edición
+                document.querySelectorAll('.doctor-actions .btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const doctorName = this.closest('.doctor-item').querySelector('h4').textContent;
+                        showNotification(`Editando información de ${doctorName}`, 'info');
+                    });
+                });
+                
+                // Agregar funcionalidad al botón de reportes
+                document.querySelector('.dashboard-card:last-child .btn-primary').addEventListener('click', function() {
+                    showNotification('Generando reporte completo...', 'info');
+                    setTimeout(() => {
+                        showNotification('Reporte generado exitosamente', 'success');
+                    }, 2000);
+                });
+            }
+
+            // Cargar dashboard de médico
+            function loadDoctorDashboard() {
+                console.log('Cargando dashboard de médico');
+                
+                // Seleccionar un médico aleatorio para la demo
+                const randomDoctor = sampleData.doctors[Math.floor(Math.random() * sampleData.doctors.length)];
+                
+                // Actualizar información del médico
+                document.getElementById('doctorName').textContent = randomDoctor.name;
+                document.getElementById('doctorSpecialty').textContent = randomDoctor.specialty;
+                
+                // Agregar funcionalidad a los botones de atención
+                document.querySelectorAll('#doctorTodayAppointments .btn-primary').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const patientName = this.closest('.appointment-item').querySelector('h4').textContent;
+                        showNotification(`Atendiendo a ${patientName}`, 'success');
+                    });
+                });
+                
+                // Agregar funcionalidad a las acciones rápidas
+                document.querySelectorAll('.quick-actions .btn').forEach((btn, index) => {
+                    btn.addEventListener('click', function() {
+                        const actions = [
+                            'Registrando nueva consulta...',
+                            'Generando receta médica...',
+                            'Actualizando historia clínica...',
+                            'Solicitando exámenes de laboratorio...'
+                        ];
+                        showNotification(actions[index], 'info');
+                    });
+                });
+            }
+
+            // Cargar dashboard de paciente
+            function loadPatientDashboard() {
+                console.log('Cargando dashboard de paciente');
+                
+                // Seleccionar un paciente aleatorio para la demo
+                const randomPatient = sampleData.patients[Math.floor(Math.random() * sampleData.patients.length)];
+                
+                // Actualizar información del paciente
+                document.getElementById('patientName').textContent = randomPatient.name;
+                document.getElementById('patientEmail').textContent = randomPatient.email;
+                
+                // Agregar funcionalidad a los botones de cancelar cita
+                document.querySelectorAll('#patientAppointmentsList .btn-danger').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const specialty = this.closest('.appointment-item').querySelector('h4').textContent;
+                        if (confirm(`¿Estás seguro de que deseas cancelar tu cita de ${specialty}?`)) {
+                            showNotification('Cita cancelada exitosamente', 'success');
+                            this.closest('.appointment-item').style.opacity = '0.5';
+                            this.disabled = true;
+                            this.textContent = 'Cancelada';
+                        }
+                    });
+                });
+                
+                // Agregar funcionalidad al botón de agendar cita
+                document.querySelector('#patientAppointmentsList + .btn-primary').addEventListener('click', function() {
+                    showNotification('Redirigiendo al sistema de agendamiento de citas...', 'info');
+                });
+            }
+
+            // Función para mostrar notificaciones
+            function showNotification(message, type = 'info') {
+                // Crear elemento de notificación
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                // Animación de entrada
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Eliminar después de 5 segundos
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 300);
+                }, 5000);
+            }
+
+            // Inicializar la aplicación con datos de ejemplo
+            console.log('Aplicación lista para usar. Selecciona un tipo de usuario para comenzar.');
+        });
+    </script>
+</body>
+</html>
