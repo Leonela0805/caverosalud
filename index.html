@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sistema de gestión médica CaveroSalud Digital - Agenda citas, gestiona pacientes y médicos">
-    <title>CaveroSalud Digital - Sistema de Gestión Médica</title>
+    <meta name="description" content="Clínica Cavero - Servicios médicos de calidad con especialistas en diversas áreas">
+    <title>Clínica Cavero - Centro Médico Integral</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -62,6 +62,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
         }
 
         .logo h1 {
@@ -149,7 +154,7 @@
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
         }
 
@@ -180,73 +185,255 @@
             background-color: #f0f0f0;
         }
 
-        /* User Type Selector */
-        .user-type-selector {
+        /* About Section */
+        .about {
+            padding: 80px 0;
             background-color: white;
-            padding: 60px 0;
-            text-align: center;
         }
 
-        .user-cards {
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            gap: 40px;
         }
 
-        .user-card {
+        .about-card {
             background-color: var(--light-color);
             border-radius: var(--border-radius);
-            padding: 40px 30px;
+            padding: 30px;
             text-align: center;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
-            cursor: pointer;
-            border-top: 4px solid transparent;
         }
 
-        .user-card:hover {
+        .about-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .user-card.admin {
-            border-top-color: var(--danger-color);
-        }
-
-        .user-card.doctor {
-            border-top-color: var(--primary-color);
-        }
-
-        .user-card.patient {
-            border-top-color: var(--secondary-color);
-        }
-
-        .user-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .user-card.admin .user-icon {
-            color: var(--danger-color);
-        }
-
-        .user-card.doctor .user-icon {
+        .about-icon {
+            font-size: 2.5rem;
             color: var(--primary-color);
-        }
-
-        .user-card.patient .user-icon {
-            color: var(--secondary-color);
-        }
-
-        .user-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .user-card p {
-            color: var(--gray-color);
             margin-bottom: 20px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #f5f7fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        /* Specialties Section */
+        .specialties {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .specialty-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .specialty-card:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .specialty-card:hover .specialty-icon {
+            color: white;
+        }
+
+        .specialty-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #f5f7fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .contact-info ul {
+            list-style: none;
+        }
+
+        .contact-info ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-form {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-color);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
         }
 
         /* Dashboard */
@@ -308,6 +495,16 @@
             color: white;
         }
 
+        .role-lab {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .role-pharma {
+            background-color: #8e44ad;
+            color: white;
+        }
+
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -366,13 +563,13 @@
             font-weight: 500;
         }
 
-        .appointments-list, .doctors-list, .patients-list {
+        .appointments-list, .doctors-list, .patients-list, .prescriptions-list, .lab-orders-list {
             list-style: none;
             max-height: 400px;
             overflow-y: auto;
         }
 
-        .appointment-item, .doctor-item, .patient-item {
+        .appointment-item, .doctor-item, .patient-item, .prescription-item, .lab-order-item {
             padding: 18px 0;
             border-bottom: 1px solid #eee;
             display: flex;
@@ -381,29 +578,29 @@
             transition: var(--transition);
         }
 
-        .appointment-item:hover, .doctor-item:hover, .patient-item:hover {
+        .appointment-item:hover, .doctor-item:hover, .patient-item:hover, .prescription-item:hover, .lab-order-item:hover {
             background-color: var(--light-color);
             border-radius: var(--border-radius);
             padding: 18px 15px;
             margin: 0 -15px;
         }
 
-        .appointment-item:last-child, .doctor-item:last-child, .patient-item:last-child {
+        .appointment-item:last-child, .doctor-item:last-child, .patient-item:last-child, .prescription-item:last-child, .lab-order-item:last-child {
             border-bottom: none;
         }
 
-        .appointment-info h4, .doctor-info h4, .patient-info h4 {
+        .appointment-info h4, .doctor-info h4, .patient-info h4, .prescription-info h4, .lab-order-info h4 {
             margin-bottom: 8px;
             color: var(--dark-color);
         }
 
-        .appointment-info p, .doctor-info p, .patient-info p {
+        .appointment-info p, .doctor-info p, .patient-info p, .prescription-info p, .lab-order-info p {
             color: var(--gray-color);
             font-size: 0.9rem;
             margin-bottom: 4px;
         }
 
-        .appointment-actions, .doctor-actions, .patient-actions {
+        .appointment-actions, .doctor-actions, .patient-actions, .prescription-actions, .lab-order-actions {
             display: flex;
             gap: 8px;
         }
@@ -432,6 +629,21 @@
 
         .badge.cancelada {
             background-color: var(--danger-color);
+            color: white;
+        }
+
+        .badge.entregada {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .badge.pendiente-entrega {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .badge.completada {
+            background-color: var(--secondary-color);
             color: white;
         }
 
@@ -468,6 +680,120 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+        }
+
+        /* Consultation Modal */
+        .consultation-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .consultation-tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .consultation-tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .consultation-tab:hover {
+            background-color: var(--light-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Nuevos estilos para el dashboard del administrador */
+        .admin-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .appointment-management {
+            background: var(--light-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+        }
+
+        .appointment-request {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .appointment-actions-admin {
+            display: flex;
+            gap: 8px;
+        }
+
+        .reschedule-form {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .staff-form {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .user-type-select {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .user-type-option {
+            padding: 10px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .user-type-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(26, 115, 232, 0.1);
+        }
+
+        .user-type-option i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            display: block;
         }
 
         /* Notification */
@@ -568,12 +894,27 @@
                 gap: 15px;
             }
 
-            .user-cards {
-                grid-template-columns: 1fr;
-            }
-
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .consultation-tabs {
+                flex-direction: column;
+            }
+
+            .appointment-request {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .appointment-actions-admin {
+                width: 100%;
+                justify-content: flex-end;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -594,13 +935,13 @@
                 grid-template-columns: 1fr;
             }
             
-            .appointment-item, .doctor-item, .patient-item {
+            .appointment-item, .doctor-item, .patient-item, .prescription-item, .lab-order-item {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
             
-            .appointment-actions, .doctor-actions, .patient-actions {
+            .appointment-actions, .doctor-actions, .patient-actions, .prescription-actions, .lab-order-actions {
                 width: 100%;
                 justify-content: flex-end;
             }
@@ -612,13 +953,15 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <h1><i class="fas fa-heartbeat"></i> CaveroSalud Digital</h1>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpkzMOnCNsFNKoRlLNN8A-Nsh0w4Wi_2xsFg&s" alt="Clínica Cavero">
+                <h1>Clínica Cavero</h1>
             </div>
             <nav>
                 <ul>
                     <li><a href="#" class="active">Inicio</a></li>
-                    <li><a href="#features">Servicios</a></li>
-                    <li><a href="#how-it-works">Cómo funciona</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#specialties">Especialidades</a></li>
                     <li><a href="#contact">Contacto</a></li>
                 </ul>
             </nav>
@@ -632,341 +975,395 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Sistema Integral de Gestión Médica</h2>
-            <p>Plataforma digital para la gestión completa de la Clínica Cavero. Administra pacientes, médicos y citas en un solo lugar.</p>
+            <h2>Tu salud es nuestra prioridad</h2>
+            <p>En Clínica Cavero ofrecemos atención médica integral con profesionales especializados y tecnología de vanguardia para tu bienestar.</p>
             <div class="hero-buttons">
-                <button class="btn btn-light" id="demoBtn"><i class="fas fa-play-circle"></i> Probar Demo</button>
+                <button class="btn btn-light" id="heroRegisterBtn"><i class="fas fa-calendar-plus"></i> Agendar Cita</button>
                 <button class="btn btn-outline" style="border-color: white; color: white;" id="moreInfoBtn"><i class="fas fa-info-circle"></i> Más información</button>
             </div>
         </div>
     </section>
 
-    <!-- User Type Selector -->
-    <section class="user-type-selector" id="userTypeSelector">
+    <!-- About Section -->
+    <section class="about" id="about">
         <div class="container">
-            <h2>Selecciona un tipo de usuario para probar el sistema</h2>
-            <p>Explora las diferentes funcionalidades según tu rol en la clínica</p>
-            
-            <div class="user-cards">
-                <div class="user-card admin" data-user-type="admin">
-                    <div class="user-icon"><i class="fas fa-crown"></i></div>
-                    <h3>Dueño/Administrador</h3>
-                    <p>Acceso completo al sistema. Visualiza todas las citas, gestiona médicos y pacientes, y genera reportes.</p>
-                    <div class="btn btn-primary">Acceder como Dueño</div>
+            <div class="section-title">
+                <h2>Nosotros</h2>
+                <p>Conoce más sobre nuestra misión, visión y valores</p>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Misión</h3>
+                    <p>Brindar servicios de salud integrales con calidad, calidez y tecnología de vanguardia, centrados en el paciente y su familia, promoviendo la prevención y el bienestar de nuestra comunidad.</p>
                 </div>
-                
-                <div class="user-card doctor" data-user-type="doctor">
-                    <div class="user-icon"><i class="fas fa-user-md"></i></div>
-                    <h3>Médico</h3>
-                    <p>Gestiona tus citas, visualiza tu agenda, atiende pacientes y actualiza historias clínicas.</p>
-                    <div class="btn btn-primary">Acceder como Médico</div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Visión</h3>
+                    <p>Ser la clínica líder en Ayacucho, reconocida por nuestra excelencia médica, innovación tecnológica y atención humanizada, siendo referente en servicios de salud integral.</p>
                 </div>
-                
-                <div class="user-card patient" data-user-type="patient">
-                    <div class="user-icon"><i class="fas fa-user"></i></div>
-                    <h3>Paciente</h3>
-                    <p>Agenda citas, consulta tu historia clínica y recibe recordatorios de tus consultas.</p>
-                    <div class="btn btn-primary">Acceder como Paciente</div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Valores</h3>
+                    <p>Calidad, Ética, Responsabilidad, Empatía, Innovación y Compromiso con nuestros pacientes y la comunidad.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Admin Dashboard -->
-    <section class="dashboard" id="adminDashboard">
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
-            <div class="dashboard-header">
-                <div class="user-info">
-                    <div class="user-avatar">A</div>
-                    <div>
-                        <h3>Administrador CaveroSalud <span class="user-role role-admin">Dueño</span></h3>
-                        <p>admin@caverosalud.pe</p>
-                    </div>
-                </div>
-                <button class="btn btn-outline" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Contamos con una amplia gama de servicios médicos para tu bienestar</p>
             </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="totalAppointments">24</div>
-                    <div class="stat-label">Citas Totales</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                    <h3>Consultas Médicas</h3>
+                    <p>Atención especializada en diversas áreas médicas con profesionales calificados.</p>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="totalDoctors">8</div>
-                    <div class="stat-label">Médicos Activos</div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-vial"></i></div>
+                    <h3>Laboratorio Clínico</h3>
+                    <p>Análisis clínicos completos con tecnología de última generación y resultados confiables.</p>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="totalPatients">156</div>
-                    <div class="stat-label">Pacientes Registrados</div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-pills"></i></div>
+                    <h3>Farmacia</h3>
+                    <p>Medicamentos de calidad con asesoramiento farmacéutico profesional.</p>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="todayAppointments">5</div>
-                    <div class="stat-label">Citas Hoy</div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-ambulance"></i></div>
+                    <h3>Emergencias</h3>
+                    <p>Atención médica inmediata las 24 horas con equipo especializado en emergencias.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="dashboard-grid">
-                <div class="dashboard-card">
-                    <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Citas Recientes</h3>
-                    <ul class="appointments-list" id="adminAppointmentsList">
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Cardiología</h4>
-                                <p>Ana López con Dra. María García</p>
-                                <p>15 Noviembre 2023 - 11:30 AM</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <span class="badge confirmada">Confirmada</span>
-                            </div>
-                        </li>
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Medicina General</h4>
-                                <p>Carlos Mendoza con Dr. Juan Pérez</p>
-                                <p>15 Noviembre 2023 - 10:00 AM</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <span class="badge confirmada">Confirmada</span>
-                            </div>
-                        </li>
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Dermatología</h4>
-                                <p>Roberto Silva con Dr. Carlos Rodríguez</p>
-                                <p>16 Noviembre 2023 - 09:00 AM</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <span class="badge pendiente">Pendiente</span>
-                            </div>
-                        </li>
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Pediatría</h4>
-                                <p>Javier Ruiz con Dra. Laura Mendoza</p>
-                                <p>17 Noviembre 2023 - 10:30 AM</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <span class="badge confirmada">Confirmada</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
-                        <i class="fas fa-list"></i> Ver Todas las Citas
-                    </button>
+    <!-- Specialties Section -->
+    <section class="specialties" id="specialties">
+        <div class="container">
+            <div class="section-title">
+                <h2>Especialidades Médicas</h2>
+                <p>Contamos con especialistas en diversas áreas de la medicina</p>
+            </div>
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <div class="specialty-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h4>Cardiología</h4>
                 </div>
-
-                <div class="dashboard-card">
-                    <h3 class="card-title"><i class="fas fa-user-md"></i> Médicos Activos</h3>
-                    <ul class="doctors-list" id="adminDoctorsList">
-                        <li class="doctor-item">
-                            <div class="doctor-info">
-                                <h4>Dr. Juan Pérez</h4>
-                                <p>Medicina General</p>
-                                <p>12 citas programadas</p>
-                            </div>
-                            <div class="doctor-actions">
-                                <button class="btn btn-sm btn-outline">Editar</button>
-                            </div>
-                        </li>
-                        <li class="doctor-item">
-                            <div class="doctor-info">
-                                <h4>Dra. María García</h4>
-                                <p>Cardiología</p>
-                                <p>8 citas programadas</p>
-                            </div>
-                            <div class="doctor-actions">
-                                <button class="btn btn-sm btn-outline">Editar</button>
-                            </div>
-                        </li>
-                        <li class="doctor-item">
-                            <div class="doctor-info">
-                                <h4>Dr. Carlos Rodríguez</h4>
-                                <p>Dermatología</p>
-                                <p>5 citas programadas</p>
-                            </div>
-                            <div class="doctor-actions">
-                                <button class="btn btn-sm btn-outline">Editar</button>
-                            </div>
-                        </li>
-                        <li class="doctor-item">
-                            <div class="doctor-info">
-                                <h4>Dra. Laura Mendoza</h4>
-                                <p>Pediatría</p>
-                                <p>10 citas programadas</p>
-                            </div>
-                            <div class="doctor-actions">
-                                <button class="btn btn-sm btn-outline">Editar</button>
-                            </div>
-                        </li>
-                    </ul>
-                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
-                        <i class="fas fa-plus"></i> Agregar Médico
-                    </button>
+                <div class="specialty-card">
+                    <div class="specialty-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Neurología</h4>
                 </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon"><i class="fas fa-baby"></i></div>
+                    <h4>Pediatría</h4>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon"><i class="fas fa-female"></i></div>
+                    <h4>Ginecología</h4>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon"><i class="fas fa-bone"></i></div>
+                    <h4>Traumatología</h4>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon"><i class="fas fa-eye"></i></div>
+                    <h4>Oftalmología</h4>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon"><i class="fas fa-tooth"></i></div>
+                    <h4>Odontología</h4>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon"><i class="fas fa-allergies"></i></div>
+                    <h4>Dermatología</h4>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="dashboard-card">
-                    <h3 class="card-title"><i class="fas fa-chart-bar"></i> Reportes Rápidos</h3>
-                    <div style="margin-bottom: 20px;">
-                        <h4 style="margin-bottom: 15px; color: var(--gray-color);">Especialidades Más Solicitadas</h4>
-                        <div style="background: var(--light-color); padding: 15px; border-radius: var(--border-radius);">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                <span>Medicina General</span>
-                                <span style="font-weight: bold; color: var(--primary-color);">35%</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                <span>Cardiología</span>
-                                <span style="font-weight: bold; color: var(--primary-color);">25%</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                <span>Pediatría</span>
-                                <span style="font-weight: bold; color: var(--primary-color);">20%</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between;">
-                                <span>Dermatología</span>
-                                <span style="font-weight: bold; color: var(--primary-color);">15%</span>
-                            </div>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>Estamos aquí para atenderte. Contáctanos para más información</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Ayacucho, Perú</li>
+                        <li><i class="fas fa-phone"></i> +51 966 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@clinicacavero.pe</li>
+                        <li><i class="fas fa-globe"></i> www.clinicacavero.pe</li>
+                        <li><i class="fas fa-clock"></i> Lunes a Viernes: 7:00 AM - 8:00 PM</li>
+                        <li><i class="fas fa-clock"></i> Sábados: 8:00 AM - 2:00 PM</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Nombre Completo</label>
+                            <input type="text" id="contactName" class="form-control" placeholder="Ingresa tu nombre completo" required>
                         </div>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">
-                        <i class="fas fa-download"></i> Generar Reporte Completo
-                    </button>
+                        <div class="form-group">
+                            <label for="contactEmail">Correo Electrónico</label>
+                            <input type="email" id="contactEmail" class="form-control" placeholder="Ingresa tu correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Asunto</label>
+                            <input type="text" id="contactSubject" class="form-control" placeholder="Asunto del mensaje" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Mensaje</label>
+                            <textarea id="contactMessage" class="form-control" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Doctor Dashboard -->
-    <section class="dashboard" id="doctorDashboard">
-        <div class="container">
-            <div class="dashboard-header">
-                <div class="user-info">
-                    <div class="user-avatar">D</div>
-                    <div>
-                        <h3 id="doctorName">Dr. Juan Pérez <span class="user-role role-doctor">Médico</span></h3>
-                        <p id="doctorSpecialty">Medicina General</p>
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="form-title"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Correo electrónico o DNI</label>
+                    <input type="text" id="loginEmail" class="form-control" placeholder="Ingresa tu correo o DNI" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Ingresa tu contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="loginSubmitBtn">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
+                <div class="form-footer">
+                    <p>¿No tienes una cuenta? <a href="#" id="switchToRegister">Regístrate aquí</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="form-title"><i class="fas fa-user-plus"></i> Crear Cuenta</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Nombres</label>
+                    <input type="text" id="registerName" class="form-control" placeholder="Ingresa tus nombres" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerLastName">Apellidos</label>
+                    <input type="text" id="registerLastName" class="form-control" placeholder="Ingresa tus apellidos" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerDni">DNI</label>
+                    <input type="text" id="registerDni" class="form-control" placeholder="Ingresa tu número de DNI" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPhone">Número de Celular</label>
+                    <input type="tel" id="registerPhone" class="form-control" placeholder="Ingresa tu número de celular" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Correo electrónico (Opcional)</label>
+                    <input type="email" id="registerEmail" class="form-control" placeholder="Ingresa tu correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Contraseña</label>
+                    <input type="password" id="registerPassword" class="form-control" placeholder="Crea una contraseña segura" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirmar Contraseña</label>
+                    <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirma tu contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="registerSubmitBtn">
+                    <i class="fas fa-user-plus"></i> Registrarse
+                </button>
+                <div class="form-footer">
+                    <p>¿Ya tienes una cuenta? <a href="#" id="switchToLogin">Inicia sesión aquí</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Appointment Modal -->
+    <div class="modal" id="appointmentModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="form-title"><i class="fas fa-calendar-plus"></i> Agendar Nueva Cita</h2>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="appointmentSpecialty">Especialidad</label>
+                    <select id="appointmentSpecialty" class="form-control" required>
+                        <option value="">Selecciona una especialidad</option>
+                        <option value="Cardiología">Cardiología</option>
+                        <option value="Neurología">Neurología</option>
+                        <option value="Pediatría">Pediatría</option>
+                        <option value="Ginecología">Ginecología</option>
+                        <option value="Traumatología">Traumatología</option>
+                        <option value="Oftalmología">Oftalmología</option>
+                        <option value="Odontología">Odontología</option>
+                        <option value="Dermatología">Dermatología</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDoctor">Médico (Opcional)</label>
+                    <select id="appointmentDoctor" class="form-control">
+                        <option value="">Selecciona un médico (opcional)</option>
+                        <option value="Dr. Juan Pérez">Dr. Juan Pérez</option>
+                        <option value="Dra. María García">Dra. María García</option>
+                        <option value="Dr. Carlos Rodríguez">Dr. Carlos Rodríguez</option>
+                        <option value="Dra. Laura Mendoza">Dra. Laura Mendoza</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">Fecha</label>
+                    <input type="date" id="appointmentDate" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">Horario</label>
+                    <select id="appointmentTime" class="form-control" required>
+                        <option value="">Selecciona un horario</option>
+                        <option value="08:00">08:00 AM</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="14:00">02:00 PM</option>
+                        <option value="15:00">03:00 PM</option>
+                        <option value="16:00">04:00 PM</option>
+                        <option value="17:00">05:00 PM</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-calendar-check"></i> Confirmar Cita
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Consultation Modal -->
+    <div class="modal" id="consultationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="form-title"><i class="fas fa-stethoscope"></i> Atender Paciente</h2>
+            
+            <div class="consultation-tabs">
+                <div class="consultation-tab active" data-tab="history">Historia Clínica</div>
+                <div class="consultation-tab" data-tab="prescription">Generar Receta</div>
+                <div class="consultation-tab" data-tab="lab">Orden de Laboratorio</div>
+                <div class="consultation-tab" data-tab="summary">Resumen</div>
+            </div>
+            
+            <div id="consultationPatientInfo" style="background: var(--light-color); padding: 15px; border-radius: var(--border-radius); margin-bottom: 20px;">
+                <h4 id="currentPatientName">Carlos Mendoza</h4>
+                <p id="currentPatientInfo">DNI: 12345678 | Edad: 45 años | Consulta: #C-2023-0015</p>
+            </div>
+            
+            <div class="tab-content active" id="historyTab">
+                <h4>Historia Clínica del Paciente</h4>
+                <div id="patientFullHistory">
+                    <div class="medical-history-item">
+                        <h4>Consulta de Medicina General</h4>
+                        <div class="medical-history-meta">
+                            <span><i class="fas fa-calendar"></i> 15 Octubre 2023</span>
+                            <span><i class="fas fa-user-md"></i> Dr. Juan Pérez</span>
+                            <span><i class="fas fa-hashtag"></i> #C-2023-0010</span>
+                        </div>
+                        <p><strong>Diagnóstico:</strong> Infección respiratoria superior</p>
+                        <p><strong>Tratamiento:</strong> Amoxicilina 500mg cada 8 horas por 7 días</p>
+                        <p><strong>Observaciones:</strong> Reposo relativo y abundante líquido</p>
+                    </div>
+                    <div class="medical-history-item">
+                        <h4>Control Cardiológico</h4>
+                        <div class="medical-history-meta">
+                            <span><i class="fas fa-calendar"></i> 05 Septiembre 2023</span>
+                            <span><i class="fas fa-user-md"></i> Dra. María García</span>
+                            <span><i class="fas fa-hashtag"></i> #C-2023-0005</span>
+                        </div>
+                        <p><strong>Diagnóstico:</strong> Presión arterial elevada</p>
+                        <p><strong>Tratamiento:</strong> Losartán 50mg una vez al día</p>
+                        <p><strong>Recomendaciones:</strong> Dieta baja en sal y ejercicio regular</p>
                     </div>
                 </div>
-                <button class="btn btn-outline" id="doctorLogoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
             </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="doctorAppointmentsToday">3</div>
-                    <div class="stat-label">Citas Hoy</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="doctorAppointmentsWeek">12</div>
-                    <div class="stat-label">Citas Esta Semana</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="doctorPatients">45</div>
-                    <div class="stat-label">Pacientes Atendidos</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="doctorAvailability">85%</div>
-                    <div class="stat-label">Disponibilidad</div>
-                </div>
-            </div>
-
-            <div class="dashboard-grid">
-                <div class="dashboard-card">
-                    <h3 class="card-title"><i class="fas fa-calendar-day"></i> Citas de Hoy</h3>
-                    <ul class="appointments-list" id="doctorTodayAppointments">
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Carlos Mendoza</h4>
-                                <p>10:00 AM - Medicina General</p>
-                                <p>Estado: Confirmada</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <button class="btn btn-sm btn-primary">Atender</button>
-                            </div>
-                        </li>
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>María Torres</h4>
-                                <p>02:00 PM - Medicina General</p>
-                                <p>Estado: Confirmada</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <button class="btn btn-sm btn-primary">Atender</button>
-                            </div>
-                        </li>
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Luis García</h4>
-                                <p>04:30 PM - Consulta de control</p>
-                                <p>Estado: Confirmada</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <button class="btn btn-sm btn-primary">Atender</button>
-                            </div>
-                        </li>
-                    </ul>
-                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
-                        <i class="fas fa-calendar-week"></i> Ver Agenda Semanal
-                    </button>
-                </div>
-
-                <div class="dashboard-card">
-                    <h3 class="card-title"><i class="fas fa-clock"></i> Próximas Citas</h3>
-                    <ul class="appointments-list" id="doctorUpcomingAppointments">
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Ana López</h4>
-                                <p>16 Nov - 09:00 AM</p>
-                                <p>Cardiología</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <button class="btn btn-sm btn-outline">Detalles</button>
-                            </div>
-                        </li>
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Roberto Silva</h4>
-                                <p>17 Nov - 11:00 AM</p>
-                                <p>Control post-operatorio</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <button class="btn btn-sm btn-outline">Detalles</button>
-                            </div>
-                        </li>
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Javier Ruiz</h4>
-                                <p>18 Nov - 03:30 PM</p>
-                                <p>Consulta general</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <button class="btn btn-sm btn-outline">Detalles</button>
-                            </div>
-                        </li>
-                    </ul>
-                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">
-                        <i class="fas fa-user-clock"></i> Gestionar Disponibilidad
-                    </button>
-                </div>
-
-                <div class="dashboard-card">
-                    <h3 class="card-title"><i class="fas fa-file-medical"></i> Acciones Rápidas</h3>
-                    <div class="quick-actions">
-                        <button class="btn btn-outline">
-                            <i class="fas fa-stethoscope"></i> Registrar Consulta
-                        </button>
-                        <button class="btn btn-outline">
-                            <i class="fas fa-prescription"></i> Generar Receta
-                        </button>
-                        <button class="btn btn-outline">
-                            <i class="fas fa-file-medical-alt"></i> Actualizar Historia
-                        </button>
-                        <button class="btn btn-outline">
-                            <i class="fas fa-vial"></i> Solicitar Exámenes
-                        </button>
+            
+            <div class="tab-content" id="prescriptionTab">
+                <h4>Generar Receta Médica</h4>
+                <form id="prescriptionForm">
+                    <div class="form-group">
+                        <label for="prescriptionMedications">Medicamentos Recetados</label>
+                        <textarea id="prescriptionMedications" class="form-control" placeholder="Ej: Amoxicilina 500mg - Tomar 1 comprimido cada 8 horas por 7 días&#10;Ibuprofeno 400mg - Tomar 1 comprimido cada 12 horas si hay dolor" rows="6"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="prescriptionInstructions">Instrucciones Adicionales</label>
+                        <textarea id="prescriptionInstructions" class="form-control" placeholder="Instrucciones especiales, recomendaciones, etc." rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="generatePrescriptionBtn">
+                        <i class="fas fa-prescription"></i> Generar Receta
+                    </button>
+                </form>
+            </div>
+            
+            <div class="tab-content" id="labTab">
+                <h4>Orden de Laboratorio</h4>
+                <form id="labOrderForm">
+                    <div class="form-group">
+                        <label for="labTests">Análisis Solicitados</label>
+                        <textarea id="labTests" class="form-control" placeholder="Ej: Hemograma completo&#10;Perfil lipídico&#10;Glucosa en ayunas&#10;Función renal" rows="6"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="labInstructions">Instrucciones Especiales</label>
+                        <textarea id="labInstructions" class="form-control" placeholder="Instrucciones para la preparación, ayuno, etc." rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="labPriority">Prioridad</label>
+                        <select id="labPriority" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="urgente">Urgente</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="generateLabOrderBtn">
+                        <i class="fas fa-vial"></i> Emitir Orden
+                    </button>
+                </form>
+            </div>
+            
+            <div class="tab-content" id="summaryTab">
+                <h4>Resumen de la Consulta</h4>
+                <div class="form-group">
+                    <label for="consultationDiagnosis">Diagnóstico</label>
+                    <input type="text" id="consultationDiagnosis" class="form-control" placeholder="Diagnóstico principal">
                 </div>
+                <div class="form-group">
+                    <label for="consultationTreatment">Tratamiento Indicado</label>
+                    <textarea id="consultationTreatment" class="form-control" placeholder="Resumen del tratamiento indicado" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="consultationNotes">Notas Adicionales</label>
+                    <textarea id="consultationNotes" class="form-control" placeholder="Observaciones, recomendaciones, etc." rows="4"></textarea>
+                </div>
+                <button type="button" class="btn btn-success" id="completeConsultationBtn" style="width: 100%;">
+                    <i class="fas fa-check-circle"></i> Finalizar Consulta
+                </button>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Patient Dashboard -->
     <section class="dashboard" id="patientDashboard">
@@ -988,36 +1385,26 @@
                     <ul class="appointments-list" id="patientAppointmentsList">
                         <li class="appointment-item">
                             <div class="appointment-info">
-                                <h4>Medicina General</h4>
-                                <p>Dr. Juan Pérez</p>
+                                <h4>Consulta #C-2023-0015</h4>
+                                <p>Cardiología - Dr. Juan Pérez</p>
                                 <p>15 Noviembre 2023 - 10:00 AM</p>
                             </div>
                             <div class="appointment-actions">
-                                <button class="btn btn-sm btn-danger">Cancelar</button>
+                                <button class="btn btn-sm btn-danger cancel-appointment-btn">Cancelar</button>
                             </div>
                         </li>
                         <li class="appointment-item">
                             <div class="appointment-info">
-                                <h4>Cardiología</h4>
-                                <p>Dra. María García</p>
+                                <h4>Consulta #C-2023-0022</h4>
+                                <p>Control - Dra. María García</p>
                                 <p>22 Noviembre 2023 - 03:00 PM</p>
                             </div>
                             <div class="appointment-actions">
-                                <button class="btn btn-sm btn-danger">Cancelar</button>
-                            </div>
-                        </li>
-                        <li class="appointment-item">
-                            <div class="appointment-info">
-                                <h4>Control Médico</h4>
-                                <p>Dr. Juan Pérez</p>
-                                <p>05 Diciembre 2023 - 11:30 AM</p>
-                            </div>
-                            <div class="appointment-actions">
-                                <button class="btn btn-sm btn-danger">Cancelar</button>
+                                <button class="btn btn-sm btn-danger cancel-appointment-btn">Cancelar</button>
                             </div>
                         </li>
                     </ul>
-                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;" id="patientNewAppointmentBtn">
                         <i class="fas fa-calendar-plus"></i> Agendar Nueva Cita
                     </button>
                 </div>
@@ -1030,46 +1417,732 @@
                             <div class="medical-history-meta">
                                 <span><i class="fas fa-calendar"></i> 15 Octubre 2023</span>
                                 <span><i class="fas fa-user-md"></i> Dr. Juan Pérez</span>
+                                <span><i class="fas fa-hashtag"></i> #C-2023-0010</span>
                             </div>
                             <p><strong>Diagnóstico:</strong> Infección respiratoria superior</p>
                             <p><strong>Tratamiento:</strong> Amoxicilina 500mg cada 8 horas por 7 días</p>
-                        </div>
-                        <div class="medical-history-item">
-                            <h4>Control Cardiológico</h4>
-                            <div class="medical-history-meta">
-                                <span><i class="fas fa-calendar"></i> 05 Septiembre 2023</span>
-                                <span><i class="fas fa-user-md"></i> Dra. María García</span>
-                            </div>
-                            <p><strong>Diagnóstico:</strong> Presión arterial elevada</p>
-                            <p><strong>Tratamiento:</strong> Losartán 50mg una vez al día</p>
+                            <p><strong>Observaciones:</strong> Reposo relativo y abundante líquido</p>
                         </div>
                     </div>
-                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;" id="viewFullHistoryBtn">
                         <i class="fas fa-history"></i> Ver Historia Completa
                     </button>
                 </div>
 
                 <div class="dashboard-card">
-                    <h3 class="card-title"><i class="fas fa-user-md"></i> Médicos Disponibles</h3>
-                    <div id="patientDoctorsList">
-                        <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                            <h4>Dr. Juan Pérez</h4>
-                            <p><i class="fas fa-stethoscope"></i> Medicina General</p>
-                            <p style="font-size: 0.85rem; color: var(--gray-color);">Especialista en medicina familiar y consultas generales</p>
+                    <h3 class="card-title"><i class="fas fa-prescription"></i> Recetas Médicas</h3>
+                    <ul class="prescriptions-list" id="patientPrescriptionsList">
+                        <li class="prescription-item">
+                            <div class="prescription-info">
+                                <h4>Receta #R-2023-0042</h4>
+                                <p>Dr. Juan Pérez - 15 Oct 2023</p>
+                                <p>Amoxicilina 500mg - 21 comprimidos</p>
+                            </div>
+                            <div class="prescription-actions">
+                                <span class="badge entregada">Entregada</span>
+                            </div>
+                        </li>
+                        <li class="prescription-item">
+                            <div class="prescription-info">
+                                <h4>Receta #R-2023-0056</h4>
+                                <p>Dra. María García - 05 Sep 2023</p>
+                                <p>Losartán 50mg - 30 comprimidos</p>
+                            </div>
+                            <div class="prescription-actions">
+                                <span class="badge entregada">Entregada</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;" id="viewAllPrescriptionsBtn">
+                        <i class="fas fa-list"></i> Ver Todas las Recetas
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor Dashboard -->
+    <section class="dashboard" id="doctorDashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">D</div>
+                    <div>
+                        <h3 id="doctorName">Dr. Juan Pérez <span class="user-role role-doctor">Médico</span></h3>
+                        <p id="doctorSpecialty">Cardiología</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="doctorLogoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="doctorAppointmentsToday">3</div>
+                    <div class="stat-label">Citas Hoy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="doctorAppointmentsWeek">12</div>
+                    <div class="stat-label">Citas Esta Semana</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="doctorPatients">45</div>
+                    <div class="stat-label">Pacientes Atendidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="doctorPrescriptions">28</div>
+                    <div class="stat-label">Recetas Emitidas</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-calendar-day"></i> Citas de Hoy</h3>
+                    <ul class="appointments-list" id="doctorTodayAppointments">
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Carlos Mendoza</h4>
+                                <p>10:00 AM - Consulta #C-2023-0015</p>
+                                <p>Cardiología - Control de presión arterial</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-primary attend-patient-btn" data-patient="Carlos Mendoza" data-consult="C-2023-0015">Atender</button>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Ana López</h4>
+                                <p>11:30 AM - Consulta #C-2023-0016</p>
+                                <p>Evaluación cardiológica completa</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-primary attend-patient-btn" data-patient="Ana López" data-consult="C-2023-0016">Atender</button>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Roberto Silva</h4>
+                                <p>03:00 PM - Consulta #C-2023-0017</p>
+                                <p>Seguimiento post-operatorio</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-primary attend-patient-btn" data-patient="Roberto Silva" data-consult="C-2023-0017">Atender</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;" id="viewWeeklyScheduleBtn">
+                        <i class="fas fa-calendar-week"></i> Ver Agenda Semanal
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-file-medical"></i> Acciones Rápidas</h3>
+                    <div class="quick-actions">
+                        <button class="btn btn-outline" id="doctorViewHistoryBtn">
+                            <i class="fas fa-history"></i> Ver Historias Clínicas
+                        </button>
+                        <button class="btn btn-outline" id="doctorCreatePrescriptionBtn">
+                            <i class="fas fa-prescription"></i> Generar Receta
+                        </button>
+                        <button class="btn btn-outline" id="doctorCreateLabOrderBtn">
+                            <i class="fas fa-vial"></i> Orden de Laboratorio
+                        </button>
+                        <button class="btn btn-outline" id="doctorUpdateRecordBtn">
+                            <i class="fas fa-edit"></i> Actualizar Registro
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-clock"></i> Próximas Citas</h3>
+                    <ul class="appointments-list" id="doctorUpcomingAppointments">
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>María Torres</h4>
+                                <p>16 Nov - 09:00 AM</p>
+                                <p>Consulta #C-2023-0018</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-outline view-appointment-details">Detalles</button>
+                            </div>
+                        </li>
+                        <li class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Javier Ruiz</h4>
+                                <p>17 Nov - 11:00 AM</p>
+                                <p>Consulta #C-2023-0019</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn btn-sm btn-outline view-appointment-details">Detalles</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;" id="manageAvailabilityBtn">
+                        <i class="fas fa-user-clock"></i> Gestionar Disponibilidad
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Technician Dashboard -->
+    <section class="dashboard" id="labDashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">L</div>
+                    <div>
+                        <h3 id="labName">Ana Rodríguez <span class="user-role role-lab">Laboratorista</span></h3>
+                        <p id="labEmail">ana.rodriguez@clinicacavero.pe</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="labLogoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="labOrdersToday">8</div>
+                    <div class="stat-label">Órdenes Hoy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="labPendingOrders">5</div>
+                    <div class="stat-label">Pendientes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="labCompletedToday">3</div>
+                    <div class="stat-label">Completados Hoy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="labTotalTests">156</div>
+                    <div class="stat-label">Total Análisis</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-clipboard-list"></i> Órdenes de Laboratorio</h3>
+                    <ul class="lab-orders-list" id="labOrdersList">
+                        <li class="lab-order-item">
+                            <div class="lab-order-info">
+                                <h4>Orden #L-2023-0156</h4>
+                                <p>Carlos Mendoza - Dr. Juan Pérez</p>
+                                <p>Hemograma completo + Perfil lipídico</p>
+                                <p><strong>Prioridad:</strong> Normal</p>
+                            </div>
+                            <div class="lab-order-actions">
+                                <button class="btn btn-sm btn-primary process-lab-order">Procesar</button>
+                            </div>
+                        </li>
+                        <li class="lab-order-item">
+                            <div class="lab-order-info">
+                                <h4>Orden #L-2023-0157</h4>
+                                <p>Ana López - Dra. María García</p>
+                                <p>Glucosa + Creatinina + Urea</p>
+                                <p><strong>Prioridad:</strong> Urgente</p>
+                            </div>
+                            <div class="lab-order-actions">
+                                <button class="btn btn-sm btn-primary process-lab-order">Procesar</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;" id="viewAllLabOrdersBtn">
+                        <i class="fas fa-list"></i> Ver Todas las Órdenes
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-file-medical-alt"></i> Informes Pendientes</h3>
+                    <ul class="lab-orders-list" id="labPendingReports">
+                        <li class="lab-order-item">
+                            <div class="lab-order-info">
+                                <h4>Informe #INF-2023-042</h4>
+                                <p>María Torres - Orden #L-2023-0155</p>
+                                <p>Resultados listos para revisión</p>
+                            </div>
+                            <div class="lab-order-actions">
+                                <button class="btn btn-sm btn-secondary send-lab-report">Enviar</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;" id="newLabReportBtn">
+                        <i class="fas fa-plus"></i> Nuevo Informe
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-vial"></i> Análisis Disponibles</h3>
+                    <div class="quick-actions">
+                        <button class="btn btn-outline lab-test-btn">
+                            <i class="fas fa-tint"></i> Hemograma
+                        </button>
+                        <button class="btn btn-outline lab-test-btn">
+                            <i class="fas fa-flask"></i> Bioquímica
+                        </button>
+                        <button class="btn btn-outline lab-test-btn">
+                            <i class="fas fa-dna"></i> Marcadores
+                        </button>
+                        <button class="btn btn-outline lab-test-btn">
+                            <i class="fas fa-microscope"></i> Microbiología
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pharmacist Dashboard -->
+    <section class="dashboard" id="pharmaDashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">F</div>
+                    <div>
+                        <h3 id="pharmaName">Luis Martínez <span class="user-role role-pharma">Farmacéutico</span></h3>
+                        <p id="pharmaEmail">luis.martinez@clinicacavero.pe</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="pharmaLogoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="pharmaPrescriptionsToday">15</div>
+                    <div class="stat-label">Recetas Hoy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pharmaPendingPrescriptions">7</div>
+                    <div class="stat-label">Pendientes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pharmaDeliveredToday">8</div>
+                    <div class="stat-label">Entregadas Hoy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pharmaLowStock">3</div>
+                    <div class="stat-label">Bajo Stock</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-prescription"></i> Recetas Pendientes</h3>
+                    <ul class="prescriptions-list" id="pharmaPrescriptionsList">
+                        <li class="prescription-item">
+                            <div class="prescription-info">
+                                <h4>Receta #R-2023-0078</h4>
+                                <p>Carlos Mendoza - DNI: 12345678</p>
+                                <p>Ibuprofeno 400mg - 12 comprimidos</p>
+                                <p><strong>Médico:</strong> Dr. Carlos Rodríguez</p>
+                            </div>
+                            <div class="prescription-actions">
+                                <button class="btn btn-sm btn-primary prepare-prescription">Preparar</button>
+                            </div>
+                        </li>
+                        <li class="prescription-item">
+                            <div class="prescription-info">
+                                <h4>Receta #R-2023-0079</h4>
+                                <p>Ana López - DNI: 87654321</p>
+                                <p>Omeprazol 20mg - 28 cápsulas</p>
+                                <p><strong>Médico:</strong> Dra. María García</p>
+                            </div>
+                            <div class="prescription-actions">
+                                <button class="btn btn-sm btn-primary prepare-prescription">Preparar</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;" id="searchPrescriptionBtn">
+                        <i class="fas fa-search"></i> Buscar Receta
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-capsules"></i> Control de Inventario</h3>
+                    <ul class="prescriptions-list" id="pharmaInventory">
+                        <li class="prescription-item">
+                            <div class="prescription-info">
+                                <h4>Amoxicilina 500mg</h4>
+                                <p>Stock: 125 comprimidos</p>
+                                <p><strong>Estado:</strong> <span style="color: var(--secondary-color);">Normal</span></p>
+                            </div>
+                            <div class="prescription-actions">
+                                <button class="btn btn-sm btn-outline restock-medicine">Reabastecer</button>
+                            </div>
+                        </li>
+                        <li class="prescription-item">
+                            <div class="prescription-info">
+                                <h4>Losartán 50mg</h4>
+                                <p>Stock: 42 comprimidos</p>
+                                <p><strong>Estado:</strong> <span style="color: var(--accent-color);">Bajo</span></p>
+                            </div>
+                            <div class="prescription-actions">
+                                <button class="btn btn-sm btn-warning restock-medicine">Reabastecer</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;" id="viewInventoryReportBtn">
+                        <i class="fas fa-chart-bar"></i> Ver Reporte Completo
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-search"></i> Búsqueda de Recetas</h3>
+                    <div class="form-group">
+                        <label for="searchPrescription">Buscar por DNI o N° de Consulta</label>
+                        <input type="text" id="searchPrescription" class="form-control" placeholder="Ingresa DNI o número de consulta">
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" id="executeSearchBtn">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                    <div style="margin-top: 20px; padding: 15px; background: var(--light-color); border-radius: var(--border-radius);">
+                        <h4 style="margin-bottom: 10px;">Recetas Recientes</h4>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Recetas del día:</span>
+                            <span style="font-weight: bold;">15</span>
                         </div>
-                        <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                            <h4>Dra. María García</h4>
-                            <p><i class="fas fa-heartbeat"></i> Cardiología</p>
-                            <p style="font-size: 0.85rem; color: var(--gray-color);">Especialista en enfermedades cardiovasculares</p>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Entregadas:</span>
+                            <span style="font-weight: bold; color: var(--secondary-color);">8</span>
                         </div>
-                        <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                            <h4>Dr. Carlos Rodríguez</h4>
-                            <p><i class="fas fa-eye"></i> Dermatología</p>
-                            <p style="font-size: 0.85rem; color: var(--gray-color);">Especialista en enfermedades de la piel</p>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Pendientes:</span>
+                            <span style="font-weight: bold; color: var(--accent-color);">7</span>
                         </div>
                     </div>
-                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">
-                        <i class="fas fa-list"></i> Ver Todos los Médicos
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard Mejorado -->
+    <section class="dashboard" id="adminDashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div>
+                        <h3>Administrador Cavero <span class="user-role role-admin">Administrador</span></h3>
+                        <p>admin@clinicacavero.pe</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalAppointments">24</div>
+                    <div class="stat-label">Citas Hoy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pendingAppointments">8</div>
+                    <div class="stat-label">Pendientes de Aprobación</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalStaff">28</div>
+                    <div class="stat-label">Personal</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="revenueToday">S/ 8,240</div>
+                    <div class="stat-label">Ingresos Hoy</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Gestión de Citas -->
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-calendar-check"></i> Gestión de Citas</h3>
+                    
+                    <div class="admin-actions">
+                        <button class="btn btn-outline btn-sm" id="viewAllAppointmentsBtn">
+                            <i class="fas fa-list"></i> Ver Todas
+                        </button>
+                        <button class="btn btn-outline btn-sm" id="viewPendingAppointmentsBtn">
+                            <i class="fas fa-clock"></i> Pendientes
+                        </button>
+                    </div>
+
+                    <div class="appointment-management">
+                        <h4 style="margin-bottom: 15px; color: var(--gray-color);">Citas Pendientes de Aprobación</h4>
+                        
+                        <div class="appointment-request">
+                            <div class="appointment-info">
+                                <h4>Carlos Mendoza</h4>
+                                <p><strong>Especialidad:</strong> Cardiología</p>
+                                <p><strong>Fecha solicitada:</strong> 20 Nov 2023 - 10:00 AM</p>
+                                <p><strong>Médico:</strong> Dr. Juan Pérez</p>
+                            </div>
+                            <div class="appointment-actions-admin">
+                                <button class="btn btn-sm btn-success approve-appointment" data-id="1">
+                                    <i class="fas fa-check"></i> Aceptar
+                                </button>
+                                <button class="btn btn-sm btn-warning reschedule-appointment" data-id="1">
+                                    <i class="fas fa-calendar-alt"></i> Reprogramar
+                                </button>
+                                <button class="btn btn-sm btn-danger reject-appointment" data-id="1">
+                                    <i class="fas fa-times"></i> Rechazar
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="appointment-request">
+                            <div class="appointment-info">
+                                <h4>Ana López</h4>
+                                <p><strong>Especialidad:</strong> Pediatría</p>
+                                <p><strong>Fecha solicitada:</strong> 21 Nov 2023 - 03:00 PM</p>
+                                <p><strong>Médico:</strong> Dra. Laura Mendoza</p>
+                            </div>
+                            <div class="appointment-actions-admin">
+                                <button class="btn btn-sm btn-success approve-appointment" data-id="2">
+                                    <i class="fas fa-check"></i> Aceptar
+                                </button>
+                                <button class="btn btn-sm btn-warning reschedule-appointment" data-id="2">
+                                    <i class="fas fa-calendar-alt"></i> Reprogramar
+                                </button>
+                                <button class="btn btn-sm btn-danger reject-appointment" data-id="2">
+                                    <i class="fas fa-times"></i> Rechazar
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Formulario de Reprogramación -->
+                        <div class="reschedule-form" id="rescheduleForm">
+                            <h5>Reprogramar Cita</h5>
+                            <form id="rescheduleAppointmentForm">
+                                <input type="hidden" id="rescheduleAppointmentId">
+                                <div class="form-group">
+                                    <label for="newAppointmentDate">Nueva Fecha</label>
+                                    <input type="date" id="newAppointmentDate" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newAppointmentTime">Nuevo Horario</label>
+                                    <select id="newAppointmentTime" class="form-control" required>
+                                        <option value="">Selecciona un horario</option>
+                                        <option value="08:00">08:00 AM</option>
+                                        <option value="09:00">09:00 AM</option>
+                                        <option value="10:00">10:00 AM</option>
+                                        <option value="11:00">11:00 AM</option>
+                                        <option value="14:00">02:00 PM</option>
+                                        <option value="15:00">03:00 PM</option>
+                                        <option value="16:00">04:00 PM</option>
+                                        <option value="17:00">05:00 PM</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="rescheduleReason">Motivo de reprogramación</label>
+                                    <textarea id="rescheduleReason" class="form-control" rows="3" placeholder="Explique el motivo de la reprogramación"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-calendar-check"></i> Confirmar Reprogramación
+                                    </button>
+                                    <button type="button" class="btn btn-outline" id="cancelRescheduleBtn">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;" id="generateAppointmentsReportBtn">
+                        <i class="fas fa-download"></i> Reporte de Citas
+                    </button>
+                </div>
+
+                <!-- Gestión de Personal -->
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-users-cog"></i> Gestión de Personal</h3>
+                    
+                    <div class="admin-actions">
+                        <button class="btn btn-outline btn-sm" id="viewAllStaffBtn">
+                            <i class="fas fa-list"></i> Ver Todo
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="addStaffBtn">
+                            <i class="fas fa-plus"></i> Agregar Personal
+                        </button>
+                    </div>
+
+                    <ul class="doctors-list" id="adminStaffList">
+                        <li class="doctor-item">
+                            <div class="doctor-info">
+                                <h4>Dr. Juan Pérez</h4>
+                                <p>Cardiología - Médico</p>
+                                <p>Usuario: jperez | 12 citas hoy</p>
+                            </div>
+                            <div class="doctor-actions">
+                                <button class="btn btn-sm btn-outline edit-staff-btn" data-id="1">
+                                    <i class="fas fa-edit"></i> Editar
+                                </button>
+                                <button class="btn btn-sm btn-danger delete-staff-btn" data-id="1">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </button>
+                            </div>
+                        </li>
+                        <li class="doctor-item">
+                            <div class="doctor-info">
+                                <h4>Ana Rodríguez</h4>
+                                <p>Laboratorio - Laboratorista</p>
+                                <p>Usuario: arodriguez | 8 órdenes pendientes</p>
+                            </div>
+                            <div class="doctor-actions">
+                                <button class="btn btn-sm btn-outline edit-staff-btn" data-id="2">
+                                    <i class="fas fa-edit"></i> Editar
+                                </button>
+                                <button class="btn btn-sm btn-danger delete-staff-btn" data-id="2">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </button>
+                            </div>
+                        </li>
+                        <li class="doctor-item">
+                            <div class="doctor-info">
+                                <h4>Luis Martínez</h4>
+                                <p>Farmacia - Farmacéutico</p>
+                                <p>Usuario: lmartinez | 15 recetas hoy</p>
+                            </div>
+                            <div class="doctor-actions">
+                                <button class="btn btn-sm btn-outline edit-staff-btn" data-id="3">
+                                    <i class="fas fa-edit"></i> Editar
+                                </button>
+                                <button class="btn btn-sm btn-danger delete-staff-btn" data-id="3">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- Formulario de Personal -->
+                    <div class="staff-form" id="staffForm">
+                        <h5 id="staffFormTitle">Agregar Nuevo Personal</h5>
+                        <form id="staffManagementForm">
+                            <input type="hidden" id="staffId">
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="staffName">Nombres</label>
+                                    <input type="text" id="staffName" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staffLastName">Apellidos</label>
+                                    <input type="text" id="staffLastName" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="staffDni">DNI</label>
+                                    <input type="text" id="staffDni" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staffPhone">Teléfono</label>
+                                    <input type="tel" id="staffPhone" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="staffEmail">Correo Electrónico</label>
+                                <input type="email" id="staffEmail" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tipo de Usuario</label>
+                                <div class="user-type-select">
+                                    <div class="user-type-option" data-role="doctor">
+                                        <i class="fas fa-user-md"></i>
+                                        <span>Médico</span>
+                                    </div>
+                                    <div class="user-type-option" data-role="lab">
+                                        <i class="fas fa-vial"></i>
+                                        <span>Laboratorista</span>
+                                    </div>
+                                    <div class="user-type-option" data-role="pharma">
+                                        <i class="fas fa-pills"></i>
+                                        <span>Farmacéutico</span>
+                                    </div>
+                                    <div class="user-type-option" data-role="admin">
+                                        <i class="fas fa-crown"></i>
+                                        <span>Administrador</span>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="staffRole" required>
+                            </div>
+
+                            <div class="form-group" id="specialtyField" style="display: none;">
+                                <label for="staffSpecialty">Especialidad</label>
+                                <select id="staffSpecialty" class="form-control">
+                                    <option value="">Selecciona especialidad</option>
+                                    <option value="Cardiología">Cardiología</option>
+                                    <option value="Pediatría">Pediatría</option>
+                                    <option value="Dermatología">Dermatología</option>
+                                    <option value="Ginecología">Ginecología</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="staffUsername">Nombre de Usuario</label>
+                                    <input type="text" id="staffUsername" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staffPassword">Contraseña</label>
+                                    <input type="password" id="staffPassword" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" id="submitStaffBtn">
+                                    <i class="fas fa-save"></i> Guardar
+                                </button>
+                                <button type="button" class="btn btn-outline" id="cancelStaffBtn">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Resumen General -->
+                <div class="dashboard-card">
+                    <h3 class="card-title"><i class="fas fa-chart-bar"></i> Resumen General</h3>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 15px; color: var(--gray-color);">Estadísticas del Día</h4>
+                        <div style="background: var(--light-color); padding: 15px; border-radius: var(--border-radius);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Citas Programadas</span>
+                                <span style="font-weight: bold; color: var(--primary-color);">24</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Citas Completadas</span>
+                                <span style="font-weight: bold; color: var(--secondary-color);">16</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Recetas Entregadas</span>
+                                <span style="font-weight: bold; color: var(--secondary-color);">28</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Análisis Realizados</span>
+                                <span style="font-weight: bold; color: var(--secondary-color);">12</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 15px; color: var(--gray-color);">Inventario</h4>
+                        <div style="background: var(--light-color); padding: 15px; border-radius: var(--border-radius);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Medicamentos</span>
+                                <span style="font-weight: bold; color: var(--secondary-color);">92%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Reactivos Lab</span>
+                                <span style="font-weight: bold; color: var(--accent-color);">65%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Insumos Médicos</span>
+                                <span style="font-weight: bold; color: var(--secondary-color);">85%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;" id="generateGeneralReportBtn">
+                        <i class="fas fa-download"></i> Reporte General
                     </button>
                 </div>
             </div>
@@ -1077,19 +2150,21 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>CaveroSalud Digital</h3>
-                    <p>Plataforma digital para la gestión de servicios médicos de la Clínica Cavero. RUC Nº 20564091571</p>
+                    <h3>Clínica Cavero</h3>
+                    <p>Tu salud es nuestra prioridad. Ofrecemos servicios médicos integrales con calidad y calidez.</p>
                 </div>
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
                     <ul>
                         <li><a href="#">Inicio</a></li>
-                        <li><a href="#features">Servicios</a></li>
-                        <li><a href="#how-it-works">Cómo funciona</a></li>
+                        <li><a href="#about">Nosotros</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#specialties">Especialidades</a></li>
+                        <li><a href="#contact">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1097,13 +2172,13 @@
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Ayacucho, Perú</li>
                         <li><i class="fas fa-phone"></i> +51 966 123 456</li>
-                        <li><i class="fas fa-envelope"></i> info@caverosalud.pe</li>
-                        <li><i class="fas fa-globe"></i> www.caverosalud.pe</li>
+                        <li><i class="fas fa-envelope"></i> info@clinicacavero.pe</li>
+                        <li><i class="fas fa-globe"></i> www.clinicacavero.pe</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Clínica Cavero EIRL - Todos los derechos reservados.</p>
+                <p>&copy; 2025 Clínica Cavero EIRL - RUC Nº 20564091571 - Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -1111,227 +2186,1013 @@
     <script>
         // Datos de ejemplo para el sistema
         const sampleData = {
+            users: [
+                { id: 1, name: "Carlos", lastName: "Mendoza", dni: "12345678", phone: "987654321", email: "carlos@ejemplo.com", password: "demo123", role: "patient" },
+                { id: 2, name: "Juan", lastName: "Pérez", dni: "87654321", phone: "987654322", email: "jperez@clinicacavero.pe", password: "demo123", role: "doctor", specialty: "Cardiología" },
+                { id: 3, name: "Ana", lastName: "Rodríguez", dni: "11223344", phone: "987654323", email: "ana.rodriguez@clinicacavero.pe", password: "demo123", role: "lab" },
+                { id: 4, name: "Luis", lastName: "Martínez", dni: "44332211", phone: "987654324", email: "luis.martinez@clinicacavero.pe", password: "demo123", role: "pharma" },
+                { id: 5, name: "Administrador", lastName: "Cavero", dni: "00000000", phone: "987654325", email: "admin@clinicacavero.pe", password: "admin123", role: "admin" }
+            ],
             appointments: [
-                { id: 1, patientName: "Carlos Mendoza", doctorName: "Dr. Juan Pérez", specialty: "Medicina General", date: "2023-11-15", time: "10:00", status: "confirmada" },
-                { id: 2, patientName: "Ana López", doctorName: "Dra. María García", specialty: "Cardiología", date: "2023-11-15", time: "11:30", status: "confirmada" },
-                { id: 3, patientName: "Roberto Silva", doctorName: "Dr. Carlos Rodríguez", specialty: "Dermatología", date: "2023-11-16", time: "09:00", status: "pendiente" },
-                { id: 4, patientName: "María Torres", doctorName: "Dr. Juan Pérez", specialty: "Medicina General", date: "2023-11-16", time: "14:00", status: "confirmada" },
-                { id: 5, patientName: "Javier Ruiz", doctorName: "Dra. Laura Mendoza", specialty: "Pediatría", date: "2023-11-17", time: "10:30", status: "confirmada" }
+                { 
+                    id: 1, 
+                    patientId: 1, 
+                    patientName: "Carlos Mendoza", 
+                    doctorId: 2, 
+                    doctorName: "Dr. Juan Pérez", 
+                    specialty: "Cardiología", 
+                    date: "2023-11-20", 
+                    time: "10:00", 
+                    status: "pending", 
+                    consultNumber: "C-2023-0015", 
+                    requestedDate: "2023-11-15" 
+                },
+                { 
+                    id: 2, 
+                    patientId: 2, 
+                    patientName: "Ana López", 
+                    doctorId: 4, 
+                    doctorName: "Dra. Laura Mendoza", 
+                    specialty: "Pediatría", 
+                    date: "2023-11-21", 
+                    time: "15:00", 
+                    status: "pending", 
+                    consultNumber: "C-2023-0016", 
+                    requestedDate: "2023-11-15" 
+                },
+                { id: 3, patientId: 1, doctorId: 2, specialty: "Cardiología", date: "2023-11-15", time: "10:00", status: "confirmada", consultNumber: "C-2023-0015" },
+                { id: 4, patientId: 1, doctorId: 2, specialty: "Cardiología", date: "2023-11-22", time: "15:00", status: "confirmada", consultNumber: "C-2023-0022" }
             ],
-            doctors: [
-                { id: 1, name: "Dr. Juan Pérez", specialty: "Medicina General", email: "jperez@caverosalud.pe", status: "activo", appointments: 12 },
-                { id: 2, name: "Dra. María García", specialty: "Cardiología", email: "mgarcia@caverosalud.pe", status: "activo", appointments: 8 },
-                { id: 3, name: "Dr. Carlos Rodríguez", specialty: "Dermatología", email: "crodriguez@caverosalud.pe", status: "activo", appointments: 5 },
-                { id: 4, name: "Dra. Laura Mendoza", specialty: "Pediatría", email: "lmendoza@caverosalud.pe", status: "activo", appointments: 10 }
+            prescriptions: [
+                { id: 1, patientId: 1, doctorId: 2, consultNumber: "C-2023-0010", date: "2023-10-15", medications: "Amoxicilina 500mg - 21 comprimidos", status: "entregada", prescriptionNumber: "R-2023-0042" },
+                { id: 2, patientId: 1, doctorId: 2, consultNumber: "C-2023-0005", date: "2023-09-05", medications: "Losartán 50mg - 30 comprimidos", status: "entregada", prescriptionNumber: "R-2023-0056" }
             ],
-            patients: [
-                { id: 1, name: "Carlos Mendoza", email: "carlos@ejemplo.com", phone: "987654321", lastAppointment: "2023-10-15" },
-                { id: 2, name: "Ana López", email: "ana@ejemplo.com", phone: "987654322", lastAppointment: "2023-10-20" },
-                { id: 3, name: "Roberto Silva", email: "roberto@ejemplo.com", phone: "987654323", lastAppointment: "2023-11-05" },
-                { id: 4, name: "María Torres", email: "maria@ejemplo.com", phone: "987654324", lastAppointment: "2023-11-10" }
+            labOrders: [
+                { id: 1, patientId: 1, doctorId: 2, consultNumber: "C-2023-0015", date: "2023-11-15", tests: "Hemograma completo + Perfil lipídico", status: "pendiente", orderNumber: "L-2023-0156" }
+            ],
+            medicalHistory: [
+                { id: 1, patientId: 1, doctorId: 2, date: "2023-10-15", diagnosis: "Infección respiratoria superior", treatment: "Amoxicilina 500mg cada 8 horas por 7 días", notes: "Reposo relativo y abundante líquido", consultNumber: "C-2023-0010" },
+                { id: 2, patientId: 1, doctorId: 2, date: "2023-09-05", diagnosis: "Presión arterial elevada", treatment: "Losartán 50mg una vez al día", notes: "Dieta baja en sal y ejercicio regular", consultNumber: "C-2023-0005" }
+            ],
+            staff: [
+                {
+                    id: 1,
+                    name: "Juan",
+                    lastName: "Pérez",
+                    dni: "87654321",
+                    phone: "987654322",
+                    email: "jperez@clinicacavero.pe",
+                    role: "doctor",
+                    specialty: "Cardiología",
+                    username: "jperez",
+                    password: "demo123"
+                },
+                {
+                    id: 2,
+                    name: "Ana",
+                    lastName: "Rodríguez",
+                    dni: "11223344",
+                    phone: "987654323",
+                    email: "ana.rodriguez@clinicacavero.pe",
+                    role: "lab",
+                    username: "arodriguez",
+                    password: "demo123"
+                }
             ]
         };
 
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Sistema CaveroSalud Digital inicializado');
-            
-            // Elementos del DOM
-            const userTypeSelector = document.getElementById('userTypeSelector');
-            const adminDashboard = document.getElementById('adminDashboard');
-            const doctorDashboard = document.getElementById('doctorDashboard');
-            const patientDashboard = document.getElementById('patientDashboard');
-            
-            const adminLogoutBtn = document.getElementById('adminLogoutBtn');
-            const doctorLogoutBtn = document.getElementById('doctorLogoutBtn');
-            const patientLogoutBtn = document.getElementById('patientLogoutBtn');
-            
-            const demoBtn = document.getElementById('demoBtn');
-            const moreInfoBtn = document.getElementById('moreInfoBtn');
+        // Variables globales
+        let currentUser = null;
+        let currentConsultation = null;
 
-            // Selección de tipo de usuario
-            document.querySelectorAll('.user-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const userType = this.getAttribute('data-user-type');
-                    loginAsUser(userType);
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Sistema Clínica Cavero inicializado');
+            
+            // Inicializar todos los event listeners
+            initializeEventListeners();
+            initializeAdminDashboard();
+            
+            // Datos de prueba para login rápido
+            console.log('Usuarios de prueba:');
+            console.log('Paciente: DNI 12345678 / Contraseña: demo123');
+            console.log('Médico: DNI 87654321 / Contraseña: demo123');
+            console.log('Laboratorista: DNI 11223344 / Contraseña: demo123');
+            console.log('Farmacéutico: DNI 44332211 / Contraseña: demo123');
+            console.log('Administrador: DNI 00000000 / Contraseña: admin123');
+        });
+
+        function initializeEventListeners() {
+            // Event Listeners para botones principales
+            document.getElementById('loginBtn').addEventListener('click', () => showModal('loginModal'));
+            document.getElementById('registerBtn').addEventListener('click', () => showModal('registerModal'));
+            document.getElementById('heroRegisterBtn').addEventListener('click', () => showModal('registerModal'));
+            document.getElementById('moreInfoBtn').addEventListener('click', () => showNotification('Para más información, contacta con nuestro equipo de soporte.', 'info'));
+
+            // Cerrar modales
+            document.querySelectorAll('.close-modal').forEach(button => {
+                button.addEventListener('click', closeAllModals);
+            });
+
+            // Cambiar entre login y registro
+            document.getElementById('switchToRegister').addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal('registerModal');
+                closeModal('loginModal');
+            });
+
+            document.getElementById('switchToLogin').addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal('loginModal');
+                closeModal('registerModal');
+            });
+
+            // Cerrar modal al hacer clic fuera
+            window.addEventListener('click', (e) => {
+                if (e.target.classList.contains('modal')) {
+                    closeAllModals();
+                }
+            });
+
+            // Formularios
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+            document.getElementById('registerForm').addEventListener('submit', handleRegister);
+            document.getElementById('contactForm').addEventListener('submit', handleContact);
+            document.getElementById('appointmentForm').addEventListener('submit', handleAppointment);
+
+            // Botones de logout
+            document.getElementById('patientLogoutBtn').addEventListener('click', logout);
+            document.getElementById('doctorLogoutBtn').addEventListener('click', logout);
+            document.getElementById('labLogoutBtn').addEventListener('click', logout);
+            document.getElementById('pharmaLogoutBtn').addEventListener('click', logout);
+            document.getElementById('adminLogoutBtn').addEventListener('click', logout);
+
+            // Botones del dashboard del paciente
+            document.getElementById('patientNewAppointmentBtn').addEventListener('click', () => showModal('appointmentModal'));
+            document.getElementById('viewFullHistoryBtn').addEventListener('click', () => showNotification('Mostrando historia clínica completa...', 'info'));
+            document.getElementById('viewAllPrescriptionsBtn').addEventListener('click', () => showNotification('Mostrando todas las recetas...', 'info'));
+
+            // Botones de cancelar cita
+            document.querySelectorAll('.cancel-appointment-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const consultNumber = this.closest('.appointment-item').querySelector('h4').textContent.split(' ')[1];
+                    if (confirm(`¿Estás seguro de que deseas cancelar la consulta ${consultNumber}?`)) {
+                        showNotification(`Consulta ${consultNumber} cancelada exitosamente`, 'success');
+                        this.closest('.appointment-item').style.opacity = '0.5';
+                        this.disabled = true;
+                        this.textContent = 'Cancelada';
+                    }
                 });
             });
 
-            // Botón de demo
-            demoBtn.addEventListener('click', function() {
-                userTypeSelector.scrollIntoView({ behavior: 'smooth' });
-                showNotification('Selecciona un tipo de usuario para probar el sistema', 'info');
+            // Botones del dashboard del médico
+            document.querySelectorAll('.attend-patient-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const patientName = this.getAttribute('data-patient');
+                    const consultNumber = this.getAttribute('data-consult');
+                    startConsultation(patientName, consultNumber);
+                });
             });
 
-            // Botón más información
-            moreInfoBtn.addEventListener('click', function() {
-                showNotification('Para más información, contacta con nuestro equipo de soporte.', 'info');
+            document.getElementById('viewWeeklyScheduleBtn').addEventListener('click', () => showNotification('Mostrando agenda semanal...', 'info'));
+            document.getElementById('manageAvailabilityBtn').addEventListener('click', () => showNotification('Gestionando disponibilidad...', 'info'));
+            document.querySelectorAll('.view-appointment-details').forEach(btn => {
+                btn.addEventListener('click', () => showNotification('Mostrando detalles de la cita...', 'info'));
             });
 
-            // Cerrar sesión
-            adminLogoutBtn.addEventListener('click', function() {
-                logout();
+            // Botones de acciones rápidas del médico
+            document.getElementById('doctorViewHistoryBtn').addEventListener('click', () => showNotification('Accediendo a historias clínicas...', 'info'));
+            document.getElementById('doctorCreatePrescriptionBtn').addEventListener('click', () => showNotification('Generando receta médica...', 'info'));
+            document.getElementById('doctorCreateLabOrderBtn').addEventListener('click', () => showNotification('Creando orden de laboratorio...', 'info'));
+            document.getElementById('doctorUpdateRecordBtn').addEventListener('click', () => showNotification('Actualizando registro médico...', 'info'));
+
+            // Tabs de consulta médica
+            document.querySelectorAll('.consultation-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    switchConsultationTab(tabName);
+                });
             });
 
-            doctorLogoutBtn.addEventListener('click', function() {
-                logout();
+            // Botones de la consulta médica
+            document.getElementById('generatePrescriptionBtn').addEventListener('click', generatePrescription);
+            document.getElementById('generateLabOrderBtn').addEventListener('click', generateLabOrder);
+            document.getElementById('completeConsultationBtn').addEventListener('click', completeConsultation);
+
+            // Botones del laboratorista
+            document.querySelectorAll('.process-lab-order').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const orderNumber = this.closest('.lab-order-item').querySelector('h4').textContent;
+                    showNotification(`Procesando ${orderNumber}...`, 'info');
+                });
             });
 
-            patientLogoutBtn.addEventListener('click', function() {
-                logout();
+            document.querySelectorAll('.send-lab-report').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const reportNumber = this.closest('.lab-order-item').querySelector('h4').textContent;
+                    showNotification(`Enviando ${reportNumber} al médico...`, 'success');
+                });
             });
 
-            // Función para iniciar sesión como un tipo de usuario
-            function loginAsUser(userType) {
-                console.log(`Iniciando sesión como: ${userType}`);
+            document.getElementById('viewAllLabOrdersBtn').addEventListener('click', () => showNotification('Mostrando todas las órdenes de laboratorio...', 'info'));
+            document.getElementById('newLabReportBtn').addEventListener('click', () => showNotification('Creando nuevo informe de laboratorio...', 'info'));
+            document.querySelectorAll('.lab-test-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const testName = this.textContent.trim();
+                    showNotification(`Iniciando análisis de ${testName}...`, 'info');
+                });
+            });
+
+            // Botones del farmacéutico
+            document.querySelectorAll('.prepare-prescription').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const prescriptionNumber = this.closest('.prescription-item').querySelector('h4').textContent;
+                    showNotification(`Preparando ${prescriptionNumber}...`, 'info');
+                });
+            });
+
+            document.querySelectorAll('.restock-medicine').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const medicineName = this.closest('.prescription-item').querySelector('h4').textContent;
+                    showNotification(`Solicitando reabastecimiento de ${medicineName}...`, 'info');
+                });
+            });
+
+            document.getElementById('searchPrescriptionBtn').addEventListener('click', () => {
+                const searchTerm = document.getElementById('searchPrescription').value;
+                if (searchTerm) {
+                    showNotification(`Buscando recetas para: ${searchTerm}...`, 'info');
+                } else {
+                    showNotification('Por favor, ingresa un DNI o número de consulta', 'error');
+                }
+            });
+
+            document.getElementById('executeSearchBtn').addEventListener('click', () => {
+                const searchTerm = document.getElementById('searchPrescription').value;
+                if (searchTerm) {
+                    showNotification(`Buscando recetas para: ${searchTerm}...`, 'info');
+                } else {
+                    showNotification('Por favor, ingresa un DNI o número de consulta', 'error');
+                }
+            });
+
+            document.getElementById('viewInventoryReportBtn').addEventListener('click', () => showNotification('Generando reporte de inventario...', 'info'));
+        }
+
+        function initializeAdminDashboard() {
+            // Gestión de Citas
+            document.querySelectorAll('.approve-appointment').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const appointmentId = this.getAttribute('data-id');
+                    approveAppointment(appointmentId);
+                });
+            });
+
+            document.querySelectorAll('.reschedule-appointment').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const appointmentId = this.getAttribute('data-id');
+                    showRescheduleForm(appointmentId);
+                });
+            });
+
+            document.querySelectorAll('.reject-appointment').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const appointmentId = this.getAttribute('data-id');
+                    rejectAppointment(appointmentId);
+                });
+            });
+
+            document.getElementById('cancelRescheduleBtn').addEventListener('click', function() {
+                hideRescheduleForm();
+            });
+
+            document.getElementById('rescheduleAppointmentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                rescheduleAppointment();
+            });
+
+            // Gestión de Personal
+            document.getElementById('addStaffBtn').addEventListener('click', function() {
+                showStaffForm();
+            });
+
+            document.getElementById('cancelStaffBtn').addEventListener('click', function() {
+                hideStaffForm();
+            });
+
+            document.querySelectorAll('.edit-staff-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const staffId = this.getAttribute('data-id');
+                    editStaff(staffId);
+                });
+            });
+
+            document.querySelectorAll('.delete-staff-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const staffId = this.getAttribute('data-id');
+                    deleteStaff(staffId);
+                });
+            });
+
+            document.querySelectorAll('.user-type-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    selectUserType(this);
+                });
+            });
+
+            document.getElementById('staffManagementForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveStaff();
+            });
+
+            // Botones de reportes
+            document.getElementById('generateAppointmentsReportBtn').addEventListener('click', function() {
+                generateAppointmentsReport();
+            });
+
+            document.getElementById('generateGeneralReportBtn').addEventListener('click', function() {
+                generateGeneralReport();
+            });
+
+            document.getElementById('viewAllAppointmentsBtn').addEventListener('click', function() {
+                viewAllAppointments();
+            });
+
+            document.getElementById('viewPendingAppointmentsBtn').addEventListener('click', function() {
+                viewPendingAppointments();
+            });
+
+            document.getElementById('viewAllStaffBtn').addEventListener('click', function() {
+                viewAllStaff();
+            });
+        }
+
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function closeAllModals() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const emailOrDni = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Buscar usuario
+            const user = sampleData.users.find(u => 
+                (u.email === emailOrDni || u.dni === emailOrDni) && u.password === password
+            );
+            
+            if (user) {
+                currentUser = user;
+                closeAllModals();
+                showDashboard(user.role);
+                document.getElementById('loginForm').reset();
+                showNotification(`¡Bienvenido ${user.name} ${user.lastName}!`, 'success');
+            } else {
+                showNotification('Credenciales incorrectas. Por favor, inténtalo de nuevo.', 'error');
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('registerName').value;
+            const lastName = document.getElementById('registerLastName').value;
+            const dni = document.getElementById('registerDni').value;
+            const phone = document.getElementById('registerPhone').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            
+            // Validaciones
+            if (password !== confirmPassword) {
+                showNotification('Las contraseñas no coinciden.', 'error');
+                return;
+            }
+            
+            if (sampleData.users.find(u => u.dni === dni)) {
+                showNotification('Ya existe un usuario con este DNI.', 'error');
+                return;
+            }
+            
+            if (email && sampleData.users.find(u => u.email === email)) {
+                showNotification('Ya existe un usuario con este correo electrónico.', 'error');
+                return;
+            }
+            
+            // Crear nuevo usuario (siempre como paciente)
+            const newUser = {
+                id: Date.now(),
+                name,
+                lastName,
+                dni,
+                phone,
+                email: email || '',
+                password,
+                role: 'patient',
+                avatar: name.charAt(0).toUpperCase()
+            };
+            
+            sampleData.users.push(newUser);
+            
+            currentUser = newUser;
+            closeAllModals();
+            showDashboard('patient');
+            document.getElementById('registerForm').reset();
+            
+            showNotification('¡Registro exitoso! Bienvenido a Clínica Cavero.', 'success');
+        }
+
+        function handleContact(e) {
+            e.preventDefault();
+            showNotification('Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.', 'success');
+            document.getElementById('contactForm').reset();
+        }
+
+        function handleAppointment(e) {
+            e.preventDefault();
+            
+            const specialty = document.getElementById('appointmentSpecialty').value;
+            const doctor = document.getElementById('appointmentDoctor').value;
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+            
+            // Generar número de consulta automático
+            const consultNumber = `C-2023-${String(sampleData.appointments.length + 1).padStart(4, '0')}`;
+            
+            // Crear nueva cita
+            const newAppointment = {
+                id: Date.now(),
+                patientId: currentUser.id,
+                doctorId: doctor ? 2 : 2, // En una app real, buscaría el ID del médico
+                specialty,
+                date,
+                time,
+                status: 'confirmada',
+                consultNumber
+            };
+            
+            sampleData.appointments.push(newAppointment);
+            closeAllModals();
+            
+            // Actualizar lista de citas del paciente
+            updatePatientAppointments();
+            
+            showNotification(`¡Cita agendada exitosamente! Tu número de consulta es: ${consultNumber}`, 'success');
+        }
+
+        function showDashboard(role) {
+            // Ocultar todas las secciones principales
+            document.querySelector('.hero').style.display = 'none';
+            document.querySelector('.about').style.display = 'none';
+            document.querySelector('.services').style.display = 'none';
+            document.querySelector('.specialties').style.display = 'none';
+            document.querySelector('.contact').style.display = 'none';
+            document.querySelector('footer').style.display = 'none';
+            
+            // Ocultar todos los dashboards
+            document.querySelectorAll('.dashboard').forEach(dash => {
+                dash.style.display = 'none';
+            });
+            
+            // Mostrar el dashboard correspondiente
+            const dashboard = document.getElementById(`${role}Dashboard`);
+            if (dashboard) {
+                dashboard.style.display = 'block';
                 
-                // Ocultar selector de usuario
-                userTypeSelector.style.display = 'none';
-                
-                // Mostrar dashboard correspondiente
-                if (userType === 'admin') {
-                    loadAdminDashboard();
-                    adminDashboard.style.display = 'block';
-                    showNotification('¡Bienvenido Administrador! Tienes acceso completo al sistema.', 'success');
-                } else if (userType === 'doctor') {
-                    loadDoctorDashboard();
-                    doctorDashboard.style.display = 'block';
-                    showNotification('¡Bienvenido Doctor! Aquí puedes gestionar tus citas y pacientes.', 'success');
-                } else if (userType === 'patient') {
-                    loadPatientDashboard();
-                    patientDashboard.style.display = 'block';
-                    showNotification('¡Bienvenido! Agenda y gestiona tus citas médicas.', 'success');
+                // Configurar dashboard específico
+                switch(role) {
+                    case 'patient':
+                        setupPatientDashboard();
+                        break;
+                    case 'doctor':
+                        setupDoctorDashboard();
+                        break;
+                    case 'lab':
+                        setupLabDashboard();
+                        break;
+                    case 'pharma':
+                        setupPharmaDashboard();
+                        break;
+                    case 'admin':
+                        setupAdminDashboard();
+                        break;
                 }
             }
+        }
 
-            // Función para cerrar sesión
-            function logout() {
-                console.log('Cerrando sesión');
+        function setupPatientDashboard() {
+            // Actualizar información del paciente
+            document.getElementById('patientName').textContent = `${currentUser.name} ${currentUser.lastName}`;
+            document.getElementById('patientEmail').textContent = currentUser.email || 'No especificado';
+            
+            // Actualizar citas
+            updatePatientAppointments();
+        }
+
+        function updatePatientAppointments() {
+            const patientAppointments = sampleData.appointments.filter(apt => apt.patientId === currentUser.id);
+            const appointmentsList = document.getElementById('patientAppointmentsList');
+            
+            appointmentsList.innerHTML = '';
+            
+            if (patientAppointments.length === 0) {
+                appointmentsList.innerHTML = '<li class="appointment-item"><p>No tienes citas programadas.</p></li>';
+                return;
+            }
+            
+            patientAppointments.forEach(appointment => {
+                const doctor = sampleData.users.find(u => u.id === appointment.doctorId);
+                const appointmentItem = document.createElement('li');
+                appointmentItem.className = 'appointment-item';
                 
-                // Ocultar todos los dashboards
-                adminDashboard.style.display = 'none';
-                doctorDashboard.style.display = 'none';
-                patientDashboard.style.display = 'none';
+                appointmentItem.innerHTML = `
+                    <div class="appointment-info">
+                        <h4>Consulta ${appointment.consultNumber}</h4>
+                        <p>${appointment.specialty} - ${doctor ? `${doctor.name} ${doctor.lastName}` : 'Médico asignado'}</p>
+                        <p>${formatDate(appointment.date)} - ${appointment.time}</p>
+                    </div>
+                    <div class="appointment-actions">
+                        <button class="btn btn-sm btn-danger cancel-appointment-btn">Cancelar</button>
+                    </div>
+                `;
                 
-                // Mostrar selector de usuario
-                userTypeSelector.style.display = 'block';
+                appointmentsList.appendChild(appointmentItem);
+            });
+            
+            // Re-asignar event listeners a los botones de cancelar
+            document.querySelectorAll('#patientAppointmentsList .cancel-appointment-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const consultNumber = this.closest('.appointment-item').querySelector('h4').textContent.split(' ')[1];
+                    if (confirm(`¿Estás seguro de que deseas cancelar la consulta ${consultNumber}?`)) {
+                        showNotification(`Consulta ${consultNumber} cancelada exitosamente`, 'success');
+                        this.closest('.appointment-item').style.opacity = '0.5';
+                        this.disabled = true;
+                        this.textContent = 'Cancelada';
+                    }
+                });
+            });
+        }
+
+        function setupDoctorDashboard() {
+            document.getElementById('doctorName').textContent = `${currentUser.name} ${currentUser.lastName}`;
+            document.getElementById('doctorSpecialty').textContent = currentUser.specialty || 'Especialista';
+        }
+
+        function setupLabDashboard() {
+            document.getElementById('labName').textContent = `${currentUser.name} ${currentUser.lastName}`;
+            document.getElementById('labEmail').textContent = currentUser.email;
+        }
+
+        function setupPharmaDashboard() {
+            document.getElementById('pharmaName').textContent = `${currentUser.name} ${currentUser.lastName}`;
+            document.getElementById('pharmaEmail').textContent = currentUser.email;
+        }
+
+        function setupAdminDashboard() {
+            // No se necesita configuración adicional por ahora
+        }
+
+        function startConsultation(patientName, consultNumber) {
+            currentConsultation = {
+                patientName,
+                consultNumber,
+                prescription: '',
+                labOrder: '',
+                diagnosis: '',
+                treatment: '',
+                notes: ''
+            };
+            
+            // Actualizar información del paciente en el modal
+            document.getElementById('currentPatientName').textContent = patientName;
+            document.getElementById('currentPatientInfo').textContent = `DNI: 12345678 | Edad: 45 años | Consulta: ${consultNumber}`;
+            
+            // Mostrar modal de consulta
+            showModal('consultationModal');
+            
+            // Reiniciar pestañas
+            switchConsultationTab('history');
+        }
+
+        function switchConsultationTab(tabName) {
+            // Ocultar todas las pestañas
+            document.querySelectorAll('.consultation-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Activar pestaña seleccionada
+            document.querySelector(`.consultation-tab[data-tab="${tabName}"]`).classList.add('active');
+            document.getElementById(`${tabName}Tab`).classList.add('active');
+        }
+
+        function generatePrescription() {
+            const medications = document.getElementById('prescriptionMedications').value;
+            const instructions = document.getElementById('prescriptionInstructions').value;
+            
+            if (!medications) {
+                showNotification('Por favor, ingresa los medicamentos recetados', 'error');
+                return;
+            }
+            
+            currentConsultation.prescription = medications;
+            if (instructions) {
+                currentConsultation.prescription += `\n\nInstrucciones adicionales: ${instructions}`;
+            }
+            
+            showNotification('Receta generada correctamente', 'success');
+            switchConsultationTab('lab');
+        }
+
+        function generateLabOrder() {
+            const tests = document.getElementById('labTests').value;
+            const instructions = document.getElementById('labInstructions').value;
+            const priority = document.getElementById('labPriority').value;
+            
+            if (!tests) {
+                showNotification('Por favor, ingresa los análisis solicitados', 'error');
+                return;
+            }
+            
+            currentConsultation.labOrder = tests;
+            if (instructions) {
+                currentConsultation.labOrder += `\n\nInstrucciones: ${instructions}`;
+            }
+            currentConsultation.labOrder += `\nPrioridad: ${priority}`;
+            
+            showNotification('Orden de laboratorio generada correctamente', 'success');
+            switchConsultationTab('summary');
+        }
+
+        function completeConsultation() {
+            const diagnosis = document.getElementById('consultationDiagnosis').value;
+            const treatment = document.getElementById('consultationTreatment').value;
+            const notes = document.getElementById('consultationNotes').value;
+            
+            if (!diagnosis) {
+                showNotification('Por favor, ingresa un diagnóstico', 'error');
+                return;
+            }
+            
+            currentConsultation.diagnosis = diagnosis;
+            currentConsultation.treatment = treatment;
+            currentConsultation.notes = notes;
+            
+            // Guardar en el historial médico
+            const newMedicalRecord = {
+                id: Date.now(),
+                patientId: 1, // En una app real, se obtendría del paciente actual
+                doctorId: currentUser.id,
+                date: new Date().toISOString().split('T')[0],
+                diagnosis: currentConsultation.diagnosis,
+                treatment: currentConsultation.treatment,
+                notes: currentConsultation.notes,
+                consultNumber: currentConsultation.consultNumber
+            };
+            
+            sampleData.medicalHistory.push(newMedicalRecord);
+            
+            // Generar receta si existe
+            if (currentConsultation.prescription) {
+                const newPrescription = {
+                    id: Date.now(),
+                    patientId: 1,
+                    doctorId: currentUser.id,
+                    consultNumber: currentConsultation.consultNumber,
+                    date: new Date().toISOString().split('T')[0],
+                    medications: currentConsultation.prescription,
+                    status: 'pendiente',
+                    prescriptionNumber: `R-2023-${String(sampleData.prescriptions.length + 1).padStart(4, '0')}`
+                };
                 
-                showNotification('Sesión cerrada correctamente', 'info');
+                sampleData.prescriptions.push(newPrescription);
+            }
+            
+            // Generar orden de laboratorio si existe
+            if (currentConsultation.labOrder) {
+                const newLabOrder = {
+                    id: Date.now(),
+                    patientId: 1,
+                    doctorId: currentUser.id,
+                    consultNumber: currentConsultation.consultNumber,
+                    date: new Date().toISOString().split('T')[0],
+                    tests: currentConsultation.labOrder,
+                    status: 'pendiente',
+                    orderNumber: `L-2023-${String(sampleData.labOrders.length + 1).padStart(4, '0')}`
+                };
+                
+                sampleData.labOrders.push(newLabOrder);
+            }
+            
+            // Marcar cita como completada
+            const appointment = sampleData.appointments.find(apt => apt.consultNumber === currentConsultation.consultNumber);
+            if (appointment) {
+                appointment.status = 'completada';
+            }
+            
+            closeAllModals();
+            showNotification('Consulta completada y registros actualizados correctamente', 'success');
+            
+            // Actualizar estadísticas
+            if (currentUser.role === 'doctor') {
+                document.getElementById('doctorAppointmentsToday').textContent = 
+                    parseInt(document.getElementById('doctorAppointmentsToday').textContent) - 1;
+            }
+        }
+
+        // Funciones para gestión de citas del administrador
+        function approveAppointment(appointmentId) {
+            const appointment = sampleData.appointments.find(apt => apt.id == appointmentId);
+            if (appointment) {
+                appointment.status = 'approved';
+                showNotification(`Cita ${appointment.consultNumber} aprobada correctamente`, 'success');
+                updateAppointmentDisplay(appointmentId);
+            }
+        }
+
+        function rejectAppointment(appointmentId) {
+            if (confirm('¿Está seguro de que desea rechazar esta cita?')) {
+                const appointment = sampleData.appointments.find(apt => apt.id == appointmentId);
+                if (appointment) {
+                    appointment.status = 'rejected';
+                    showNotification(`Cita ${appointment.consultNumber} rechazada`, 'info');
+                    updateAppointmentDisplay(appointmentId);
+                }
+            }
+        }
+
+        function showRescheduleForm(appointmentId) {
+            const appointment = sampleData.appointments.find(apt => apt.id == appointmentId);
+            if (appointment) {
+                document.getElementById('rescheduleAppointmentId').value = appointmentId;
+                document.getElementById('rescheduleForm').style.display = 'block';
+            }
+        }
+
+        function hideRescheduleForm() {
+            document.getElementById('rescheduleForm').style.display = 'none';
+            document.getElementById('rescheduleAppointmentForm').reset();
+        }
+
+        function rescheduleAppointment() {
+            const appointmentId = document.getElementById('rescheduleAppointmentId').value;
+            const newDate = document.getElementById('newAppointmentDate').value;
+            const newTime = document.getElementById('newAppointmentTime').value;
+            const reason = document.getElementById('rescheduleReason').value;
+
+            const appointment = sampleData.appointments.find(apt => apt.id == appointmentId);
+            if (appointment) {
+                appointment.date = newDate;
+                appointment.time = newTime;
+                appointment.status = 'rescheduled';
+                appointment.rescheduleReason = reason;
+
+                showNotification(`Cita reprogramada para ${newDate} a las ${newTime}`, 'success');
+                hideRescheduleForm();
+                updateAppointmentDisplay(appointmentId);
+            }
+        }
+
+        function updateAppointmentDisplay(appointmentId) {
+            const appointmentElement = document.querySelector(`.appointment-request [data-id="${appointmentId}"]`).closest('.appointment-request');
+            const appointment = sampleData.appointments.find(apt => apt.id == appointmentId);
+            
+            if (appointment.status !== 'pending') {
+                appointmentElement.style.opacity = '0.6';
+                const actions = appointmentElement.querySelector('.appointment-actions-admin');
+                actions.innerHTML = `<span class="badge ${getStatusBadgeClass(appointment.status)}">${getStatusText(appointment.status)}</span>`;
+            }
+        }
+
+        function getStatusBadgeClass(status) {
+            const classes = {
+                'approved': 'confirmada',
+                'rejected': 'cancelada',
+                'rescheduled': 'pendiente'
+            };
+            return classes[status] || 'pendiente';
+        }
+
+        function getStatusText(status) {
+            const texts = {
+                'approved': 'Aprobada',
+                'rejected': 'Rechazada',
+                'rescheduled': 'Reprogramada',
+                'pending': 'Pendiente'
+            };
+            return texts[status] || 'Pendiente';
+        }
+
+        // Funciones para gestión de personal del administrador
+        function showStaffForm(staffData = null) {
+            const form = document.getElementById('staffForm');
+            const title = document.getElementById('staffFormTitle');
+            const submitBtn = document.getElementById('submitStaffBtn');
+
+            if (staffData) {
+                title.textContent = 'Editar Personal';
+                submitBtn.innerHTML = '<i class="fas fa-save"></i> Actualizar';
+                populateStaffForm(staffData);
+            } else {
+                title.textContent = 'Agregar Nuevo Personal';
+                submitBtn.innerHTML = '<i class="fas fa-save"></i> Guardar';
+                document.getElementById('staffManagementForm').reset();
+                document.getElementById('specialtyField').style.display = 'none';
             }
 
-            // Cargar dashboard de administrador
-            function loadAdminDashboard() {
-                console.log('Cargando dashboard de administrador');
+            form.style.display = 'block';
+        }
+
+        function hideStaffForm() {
+            document.getElementById('staffForm').style.display = 'none';
+            document.getElementById('staffManagementForm').reset();
+        }
+
+        function selectUserType(element) {
+            document.querySelectorAll('.user-type-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            
+            const role = element.getAttribute('data-role');
+            document.getElementById('staffRole').value = role;
+
+            // Mostrar campo de especialidad solo para médicos
+            const specialtyField = document.getElementById('specialtyField');
+            if (role === 'doctor') {
+                specialtyField.style.display = 'block';
+            } else {
+                specialtyField.style.display = 'none';
+            }
+        }
+
+        function editStaff(staffId) {
+            const staff = sampleData.staff.find(s => s.id == staffId);
+            if (staff) {
+                showStaffForm(staff);
                 
-                // Las estadísticas ya están cargadas en el HTML
-                // En una aplicación real, aquí se harían llamadas a la API
-                
-                // Agregar funcionalidad a los botones de edición
-                document.querySelectorAll('.doctor-actions .btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const doctorName = this.closest('.doctor-item').querySelector('h4').textContent;
-                        showNotification(`Editando información de ${doctorName}`, 'info');
-                    });
-                });
-                
-                // Agregar funcionalidad al botón de reportes
-                document.querySelector('.dashboard-card:last-child .btn-primary').addEventListener('click', function() {
-                    showNotification('Generando reporte completo...', 'info');
-                    setTimeout(() => {
-                        showNotification('Reporte generado exitosamente', 'success');
-                    }, 2000);
-                });
+                // Seleccionar el tipo de usuario
+                const roleOption = document.querySelector(`.user-type-option[data-role="${staff.role}"]`);
+                if (roleOption) {
+                    selectUserType(roleOption);
+                }
+            }
+        }
+
+        function populateStaffForm(staffData) {
+            document.getElementById('staffId').value = staffData.id;
+            document.getElementById('staffName').value = staffData.name;
+            document.getElementById('staffLastName').value = staffData.lastName;
+            document.getElementById('staffDni').value = staffData.dni;
+            document.getElementById('staffPhone').value = staffData.phone;
+            document.getElementById('staffEmail').value = staffData.email;
+            document.getElementById('staffUsername').value = staffData.username;
+            document.getElementById('staffPassword').value = staffData.password;
+            
+            if (staffData.specialty) {
+                document.getElementById('staffSpecialty').value = staffData.specialty;
+            }
+        }
+
+        function saveStaff() {
+            const staffId = document.getElementById('staffId').value;
+            const formData = {
+                name: document.getElementById('staffName').value,
+                lastName: document.getElementById('staffLastName').value,
+                dni: document.getElementById('staffDni').value,
+                phone: document.getElementById('staffPhone').value,
+                email: document.getElementById('staffEmail').value,
+                role: document.getElementById('staffRole').value,
+                username: document.getElementById('staffUsername').value,
+                password: document.getElementById('staffPassword').value,
+                specialty: document.getElementById('staffSpecialty').value
+            };
+
+            if (staffId) {
+                // Editar personal existente
+                const index = sampleData.staff.findIndex(s => s.id == staffId);
+                if (index !== -1) {
+                    sampleData.staff[index] = { ...sampleData.staff[index], ...formData };
+                    showNotification('Personal actualizado correctamente', 'success');
+                }
+            } else {
+                // Agregar nuevo personal
+                const newStaff = {
+                    id: Date.now(),
+                    ...formData
+                };
+                sampleData.staff.push(newStaff);
+                showNotification('Personal agregado correctamente', 'success');
             }
 
-            // Cargar dashboard de médico
-            function loadDoctorDashboard() {
-                console.log('Cargando dashboard de médico');
-                
-                // Seleccionar un médico aleatorio para la demo
-                const randomDoctor = sampleData.doctors[Math.floor(Math.random() * sampleData.doctors.length)];
-                
-                // Actualizar información del médico
-                document.getElementById('doctorName').textContent = randomDoctor.name;
-                document.getElementById('doctorSpecialty').textContent = randomDoctor.specialty;
-                
-                // Agregar funcionalidad a los botones de atención
-                document.querySelectorAll('#doctorTodayAppointments .btn-primary').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const patientName = this.closest('.appointment-item').querySelector('h4').textContent;
-                        showNotification(`Atendiendo a ${patientName}`, 'success');
-                    });
-                });
-                
-                // Agregar funcionalidad a las acciones rápidas
-                document.querySelectorAll('.quick-actions .btn').forEach((btn, index) => {
-                    btn.addEventListener('click', function() {
-                        const actions = [
-                            'Registrando nueva consulta...',
-                            'Generando receta médica...',
-                            'Actualizando historia clínica...',
-                            'Solicitando exámenes de laboratorio...'
-                        ];
-                        showNotification(actions[index], 'info');
-                    });
-                });
-            }
+            hideStaffForm();
+            updateStaffList();
+        }
 
-            // Cargar dashboard de paciente
-            function loadPatientDashboard() {
-                console.log('Cargando dashboard de paciente');
-                
-                // Seleccionar un paciente aleatorio para la demo
-                const randomPatient = sampleData.patients[Math.floor(Math.random() * sampleData.patients.length)];
-                
-                // Actualizar información del paciente
-                document.getElementById('patientName').textContent = randomPatient.name;
-                document.getElementById('patientEmail').textContent = randomPatient.email;
-                
-                // Agregar funcionalidad a los botones de cancelar cita
-                document.querySelectorAll('#patientAppointmentsList .btn-danger').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const specialty = this.closest('.appointment-item').querySelector('h4').textContent;
-                        if (confirm(`¿Estás seguro de que deseas cancelar tu cita de ${specialty}?`)) {
-                            showNotification('Cita cancelada exitosamente', 'success');
-                            this.closest('.appointment-item').style.opacity = '0.5';
-                            this.disabled = true;
-                            this.textContent = 'Cancelada';
-                        }
-                    });
-                });
-                
-                // Agregar funcionalidad al botón de agendar cita
-                document.querySelector('#patientAppointmentsList + .btn-primary').addEventListener('click', function() {
-                    showNotification('Redirigiendo al sistema de agendamiento de citas...', 'info');
-                });
+        function deleteStaff(staffId) {
+            if (confirm('¿Está seguro de que desea eliminar este miembro del personal?')) {
+                const index = sampleData.staff.findIndex(s => s.id == staffId);
+                if (index !== -1) {
+                    sampleData.staff.splice(index, 1);
+                    showNotification('Personal eliminado correctamente', 'success');
+                    updateStaffList();
+                }
             }
+        }
 
-            // Función para mostrar notificaciones
-            function showNotification(message, type = 'info') {
-                // Crear elemento de notificación
-                const notification = document.createElement('div');
-                notification.className = `notification ${type}`;
-                notification.textContent = message;
-                document.body.appendChild(notification);
-                
-                // Animación de entrada
+        function updateStaffList() {
+            // En una implementación real, aquí se actualizaría la lista del personal
+            console.log('Lista de personal actualizada:', sampleData.staff);
+        }
+
+        // Funciones de reportes del administrador
+        function generateAppointmentsReport() {
+            showNotification('Generando reporte de citas...', 'info');
+            // Simular generación de reporte
+            setTimeout(() => {
+                showNotification('Reporte de citas generado correctamente', 'success');
+            }, 2000);
+        }
+
+        function generateGeneralReport() {
+            showNotification('Generando reporte general...', 'info');
+            // Simular generación de reporte
+            setTimeout(() => {
+                showNotification('Reporte general generado correctamente', 'success');
+            }, 2000);
+        }
+
+        function viewAllAppointments() {
+            showNotification('Mostrando todas las citas...', 'info');
+        }
+
+        function viewPendingAppointments() {
+            showNotification('Mostrando citas pendientes...', 'info');
+        }
+
+        function viewAllStaff() {
+            showNotification('Mostrando todo el personal...', 'info');
+        }
+
+        function logout() {
+            currentUser = null;
+            currentConsultation = null;
+            
+            // Ocultar todos los dashboards
+            document.querySelectorAll('.dashboard').forEach(dash => {
+                dash.style.display = 'none';
+            });
+            
+            // Mostrar todas las secciones principales
+            document.querySelector('.hero').style.display = 'block';
+            document.querySelector('.about').style.display = 'block';
+            document.querySelector('.services').style.display = 'block';
+            document.querySelector('.specialties').style.display = 'block';
+            document.querySelector('.contact').style.display = 'block';
+            document.querySelector('footer').style.display = 'block';
+            
+            showNotification('Sesión cerrada correctamente', 'info');
+        }
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('es-ES', options);
+        }
+
+        function showNotification(message, type = 'info') {
+            // Crear elemento de notificación
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animación de entrada
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Eliminar después de 5 segundos
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
                 setTimeout(() => {
-                    notification.style.transform = 'translateX(0)';
-                }, 100);
-                
-                // Eliminar después de 5 segundos
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(100%)';
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 300);
-                }, 5000);
-            }
-
-            // Inicializar la aplicación con datos de ejemplo
-            console.log('Aplicación lista para usar. Selecciona un tipo de usuario para comenzar.');
-        });
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 5000);
+        }
     </script>
 </body>
 </html>
